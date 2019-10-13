@@ -1,0 +1,235 @@
+{
+  "x-stoplight": {
+    "docs": {
+      "showModels": false
+    }
+  },
+  "swagger": "2.0",
+  "info": {
+    "description": "Fare operations",
+    "version": "1.0",
+    "title": "Fares",
+    "termsOfService": "https://runbuggy.com/terms/",
+    "contact": {
+      "name": "Support",
+      "email": "support@runbuggy.com"
+    },
+    "license": {
+      "name": "Copyright © RunBuggy 2019",
+      "url": "https://runbuggy.com/terms/"
+    }
+  },
+  "host": "runbuggy.com",
+  "basePath": "/v2/api",
+  "tags": [
+    {
+      "name": "Fares",
+      "description": "The Fare Quotes operations."
+    }
+  ],
+  "paths": {
+    "/fares": {
+      "post": {
+        "tags": [
+          "Fares"
+        ],
+        "summary": "Retrieve fares",
+        "operationId": "getFaresUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "fareRequest",
+            "description": "fareRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FareRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FareResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Retrieve fare information based on the provided information."
+      }
+    }
+  },
+  "definitions": {
+    "Fare": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "name": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "promotionCode": {
+          "type": "string"
+        },
+        "urgency": {
+          "type": "string"
+        }
+      },
+      "title": "Fare"
+    },
+    "FareDirections": {
+      "type": "object",
+      "properties": {
+        "destination": {
+          "$ref": "#/definitions/FareLocation"
+        },
+        "origin": {
+          "$ref": "#/definitions/FareLocation"
+        },
+        "waypoints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FareLocation"
+          }
+        }
+      },
+      "title": "FareDirections"
+    },
+    "FareLocation": {
+      "type": "object",
+      "title": "FareLocation",
+      "properties": {
+        "address": {
+          "type": "string",
+          "example": "4884 E Butler Ave, Fresno, CA 93727"
+        },
+        "geolocation": {
+          "$ref": "#/definitions/Geolocation"
+        }
+      }
+    },
+    "FareRequest": {
+      "type": "object",
+      "properties": {
+        "directions": {
+          "$ref": "#/definitions/FareDirections"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "promotionCode": {
+          "type": "string"
+        },
+        "urgency": {
+          "type": "string"
+        },
+        "vehicles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Vehicle"
+          }
+        }
+      },
+      "title": "FareRequest"
+    },
+    "FareResponse": {
+      "type": "object",
+      "properties": {
+        "fares": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Fare"
+          }
+        }
+      },
+      "title": "FareResponse"
+    },
+    "Geolocation": {
+      "type": "object",
+      "properties": {
+        "lat": {
+          "type": "number",
+          "format": "double"
+        },
+        "lng": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "Geolocation"
+    },
+    "Vehicle": {
+      "type": "object",
+      "properties": {
+        "VIN": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "isOperational": {
+          "type": "boolean"
+        },
+        "isOverSized": {
+          "type": "boolean"
+        },
+        "make": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "odometer": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "stockNumber": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "year": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "Vehicle"
+    }
+  },
+  "schemes": [
+    "https"
+  ]
+}

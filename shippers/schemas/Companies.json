@@ -1,0 +1,139 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Company resource operations.",
+    "version": "1.0",
+    "title": "Companies",
+    "termsOfService": "https://runbuggy.com/terms/",
+    "contact": {
+      "name": "Support",
+      "email": "support@runbuggy.com"
+    },
+    "license": {
+      "name": "Copyright © RunBuggy 2019",
+      "url": "https://runbuggy.com/terms/"
+    }
+  },
+  "host": "www.runbuggy.com",
+  "basePath": "/v2/api",
+  "tags": [
+    {
+      "name": "Companies",
+      "description": "Companies operations."
+    }
+  ],
+  "x-stoplight": {
+    "docs": {
+      "showModels": false
+    }
+  },
+  "paths": {
+    "/companies/authorized/companies": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "summary": "Retrieve authorized companies",
+        "operationId": "getCompaniesThatAuthorizedCompanyUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Company"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Retrieve authorized companies."
+      }
+    },
+    "/companies/authorized/companies/findByUserName": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "summary": "Retrieve authorized companies by user",
+        "operationId": "getCompaniesThatAuthorizedCompanyIdByUserIdUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Company"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Retrieve authorized companies by username."
+      }
+    }
+  },
+  "definitions": {
+    "Company": {
+      "type": "object",
+      "title": "Company",
+      "description": "A company.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "c0ef80ce-2579-4682-af4f-c1d29457848a",
+          "description": "The id of the company"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the company",
+          "example": "Auto Land"
+        },
+        "type": {
+          "type": "string",
+          "description": "Possible values:\n* AUCTION\n* DEALER",
+          "enum": [
+            "DEALER",
+            "AUCTION"
+          ]
+        }
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ]
+}

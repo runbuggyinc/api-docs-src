@@ -1,0 +1,1681 @@
+{
+  "x-stoplight": {
+    "docs": {
+      "showModels": false
+    }
+  },
+  "swagger": "2.0",
+  "info": {
+    "description": "Order operations",
+    "version": "1.0",
+    "title": "Orders",
+    "termsOfService": "https://runbuggy.com/terms/",
+    "contact": {
+      "name": "Support",
+      "email": "support@runbuggy.com"
+    },
+    "license": {
+      "name": "Copyright © RunBuggy 2019",
+      "url": "https://runbuggy.com/terms/"
+    }
+  },
+  "host": "runbuggy.com",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Driver Location",
+      "description": "The Driver Location operations."
+    },
+    {
+      "name": "Orders",
+      "description": "The Orders placed to RunBuggy operations."
+    },
+    {
+      "name": "Vehicle Transfer Orders",
+      "description": "The Single Vehicle Transfer Order operations."
+    }
+  ],
+  "paths": {
+    "/orders": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Find orders",
+        "operationId": "findOrderPaginatedUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.sorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.unsorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "unpaged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PageOrder"
+            },
+            "examples": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Retrieve paginated orders."
+      },
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Create an order",
+        "operationId": "createOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "orderRequest",
+            "description": "orderRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OrderRequest"
+            },
+            "x-examples": {
+              "application/json": {
+                "notes": "These are the orders for Ed's lot.",
+                "type": "BASIC",
+                "vehicleTransferOrders": [
+                  {
+                    "direction": {
+                      "pickup": {
+                        "address": "4884 E Butler Ave, Fresno, CA 93727",
+                        "contact": {
+                          "name": "Richard Smith",
+                          "phone": "60211222212"
+                        }
+                      },
+                      "dropoff": {
+                        "address": "10050 N Metro Pkwy E, Phoenix, AZ 85051",
+                        "contact": {
+                          "name": "Ed Jones",
+                          "phone": "4805544431"
+                        }
+                      }
+                    },
+                    "vehicle": {
+                      "vin": "KL4CJHSB3EB688122"
+                    }
+                  },
+                  {
+                    "direction": {
+                      "pickup": {
+                        "address": "4884 E Butler Ave, Fresno, CA 93727",
+                        "contact": {
+                          "name": "Richard Smith",
+                          "phone": "60211222212"
+                        }
+                      },
+                      "dropoff": {
+                        "address": "10050 N Metro Pkwy E, Phoenix, AZ 85051",
+                        "contact": {
+                          "name": "Ed Jones",
+                          "phone": "4805544431"
+                        }
+                      }
+                    },
+                    "vehicle": {
+                      "vin": "1HGCM71204A015531"
+                    }
+                  },
+                  {
+                    "direction": {
+                      "pickup": {
+                        "address": "4884 E Butler Ave, Fresno, CA 93727",
+                        "contact": {
+                          "name": "Richard Smith",
+                          "phone": "60211222212"
+                        }
+                      },
+                      "dropoff": {
+                        "address": "10050 N Metro Pkwy E, Phoenix, AZ 85051",
+                        "contact": {
+                          "name": "Ed Jones",
+                          "phone": "4805544431"
+                        }
+                      }
+                    },
+                    "vehicle": {
+                      "vin": "4T1BF1FK3FU882865"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OrderResponse"
+            },
+            "examples": {}
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Create a new Order and nested Vehicle Transfer Order(s)."
+      }
+    },
+    "/orders/{id}": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Retrieve an order",
+        "operationId": "getOrderUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Retrieve specific order."
+      }
+    },
+    "/orders/{id}/cancel": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Cancel an order",
+        "operationId": "cancelOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "cancelationReason",
+            "description": "cancelationReason",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CancelationReason"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Cancel specified order."
+      }
+    },
+    "/vehicle-transfer-orders": {
+      "get": {
+        "tags": [
+          "Vehicle Transfer Orders"
+        ],
+        "summary": "Find vehicle transfer orders",
+        "operationId": "findVehicleTransferOrdersPaginatedUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.sorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.unsorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "unpaged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PageVehicleTransferOrder"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Retrieve a paginated Vehicle Transfer Orders."
+      }
+    },
+    "/vehicle-transfer-orders/{id}": {
+      "get": {
+        "tags": [
+          "Vehicle Transfer Orders"
+        ],
+        "summary": "Retrieve a vehicle transfer order",
+        "operationId": "getVehicleTransferOrderUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VehicleTransferOrder"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Retrieve specified Vehicle Transfer Order."
+      },
+      "patch": {
+        "tags": [
+          "Vehicle Transfer Orders"
+        ],
+        "summary": "Update a vehicle transfer order",
+        "operationId": "updateVehicleTransferOrderUsingPATCH",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "VehicleTransferOrder",
+            "description": "VehicleTransferOrder",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VehicleTransferOrder"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VehicleTransferOrder"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false,
+        "description": "Update specified Vehicle Transfer Order."
+      }
+    },
+    "/vehicle-transfer-orders/{id}/cancel": {
+      "post": {
+        "tags": [
+          "Vehicle Transfer Orders"
+        ],
+        "summary": "Cancel a vehicle transfer order",
+        "operationId": "cancelVehicleTransferOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "cancelationReason",
+            "description": "cancelationReason",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CancelationReason"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Cancel specified Vehicle Transfer Order."
+      }
+    },
+    "/vehicle-transfer-orders/{id}/gate-passes": {
+      "get": {
+        "tags": [
+          "Vehicle Transfer Orders"
+        ],
+        "summary": "Get gate passes",
+        "operationId": "getGatePassesUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GatePass"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Retrieve paginated Gate Passes."
+      }
+    },
+    "/vehicle-transfer-orders/{id}/gate-passes/{passId}": {
+      "get": {
+        "tags": [
+          "Vehicle Transfer Orders"
+        ],
+        "summary": "Retrieve gate pass",
+        "operationId": "getGatePassUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "passId",
+            "in": "path",
+            "description": "passId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/InputStreamResource"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Retrieve specified Gate Pass."
+      }
+    },
+    "/vehicle-transfer-orders/{id}/photos": {
+      "get": {
+        "tags": [
+          "Vehicle Transfer Orders"
+        ],
+        "summary": "Get Vehicle Transfer Order photos",
+        "operationId": "getVehiclePhotosUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VehiclePhotos"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Get paginated Vehicle Transfer Order photos."
+      }
+    },
+    "/vehicle-transfer-orders/{id}/photos/{photoId}": {
+      "get": {
+        "tags": [
+          "Vehicle Transfer Orders"
+        ],
+        "summary": "Retrieve vehicle transfer order photo",
+        "operationId": "getVehiclePhotoUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "photoId",
+            "in": "path",
+            "description": "photoId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/InputStreamResource"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Retrieve specified Vehicle Transfer Order."
+      }
+    }
+  },
+  "definitions": {
+    "CancelationReason": {
+      "type": "object",
+      "properties": {
+        "other": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "title": "CancelationReason"
+    },
+    "Canceled": {
+      "type": "object",
+      "properties": {
+        "byUser": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "title": "Canceled"
+    },
+    "Company": {
+      "type": "object",
+      "title": "Company",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "c0ef80ce-2579-4682-af4f-c1d29457848a"
+        },
+        "name": {
+          "type": "string",
+          "example": "Auto Land"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "DEALER",
+            "AUCTION"
+          ],
+          "example": "DEALER"
+        }
+      }
+    },
+    "Contact": {
+      "type": "object",
+      "title": "Contact",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Ed Jones"
+        },
+        "phone": {
+          "type": "string",
+          "example": "4804804480"
+        }
+      }
+    },
+    "Created": {
+      "type": "object",
+      "properties": {
+        "byCompany": {
+          "$ref": "#/definitions/Company"
+        },
+        "byUser": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "Created"
+    },
+    "DetailedDirections": {
+      "type": "object",
+      "title": "DetailedDirections",
+      "properties": {
+        "distanceInMiles": {
+          "type": "integer",
+          "format": "int32",
+          "example": 143
+        },
+        "dropoff": {
+          "$ref": "#/definitions/Location"
+        },
+        "pickup": {
+          "$ref": "#/definitions/Location"
+        }
+      }
+    },
+    "DetailedDirectionsRequest": {
+      "type": "object",
+      "properties": {
+        "dropoff": {
+          "$ref": "#/definitions/Location"
+        },
+        "pickup": {
+          "$ref": "#/definitions/Location"
+        }
+      },
+      "title": "DetailedDirectionsRequest"
+    },
+    "DriverInfo": {
+      "type": "object",
+      "title": "DriverInfo",
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "example": "Ed Jones"
+        },
+        "phone": {
+          "type": "string",
+          "example": "4804804880"
+        },
+        "username": {
+          "type": "string",
+          "example": "edjones@autogalaxyland.com"
+        }
+      }
+    },
+    "Fare": {
+      "type": "object",
+      "title": "Fare",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double",
+          "example": 450.98
+        },
+        "name": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "promotionCode": {
+          "type": "string",
+          "example": "RBCON19"
+        },
+        "urgency": {
+          "type": "string"
+        }
+      }
+    },
+    "FareOptionsRequest": {
+      "type": "object",
+      "title": "FareOptionsRequest",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "promotionCode": {
+          "type": "string",
+          "example": "RBCON19"
+        },
+        "urgency": {
+          "type": "string"
+        }
+      }
+    },
+    "File": {
+      "type": "object",
+      "properties": {
+        "absolute": {
+          "type": "boolean"
+        },
+        "absoluteFile": {
+          "$ref": "#/definitions/File"
+        },
+        "absolutePath": {
+          "type": "string"
+        },
+        "canonicalFile": {
+          "$ref": "#/definitions/File"
+        },
+        "canonicalPath": {
+          "type": "string"
+        },
+        "directory": {
+          "type": "boolean"
+        },
+        "file": {
+          "type": "boolean"
+        },
+        "freeSpace": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parent": {
+          "type": "string"
+        },
+        "parentFile": {
+          "$ref": "#/definitions/File"
+        },
+        "path": {
+          "type": "string"
+        },
+        "totalSpace": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "usableSpace": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "File"
+    },
+    "GatePass": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "$ref": "#/definitions/Created"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "title": "GatePass"
+    },
+    "Geolocation": {
+      "type": "object",
+      "title": "Geolocation",
+      "properties": {
+        "lat": {
+          "type": "number",
+          "format": "double",
+          "example": 36.22456039384188
+        },
+        "lng": {
+          "type": "number",
+          "format": "double",
+          "example": -115.64054689374996
+        }
+      }
+    },
+    "InputStream": {
+      "type": "object",
+      "title": "InputStream"
+    },
+    "InputStreamResource": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "file": {
+          "$ref": "#/definitions/File"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "inputStream": {
+          "$ref": "#/definitions/InputStream"
+        },
+        "open": {
+          "type": "boolean"
+        },
+        "readable": {
+          "type": "boolean"
+        },
+        "uri": {
+          "$ref": "#/definitions/URI"
+        },
+        "url": {
+          "$ref": "#/definitions/URL"
+        }
+      },
+      "title": "InputStreamResource"
+    },
+    "Location": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "contact": {
+          "$ref": "#/definitions/Contact"
+        },
+        "geolocation": {
+          "$ref": "#/definitions/Geolocation"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "windows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Window"
+          }
+        }
+      },
+      "title": "Location"
+    },
+    "Order": {
+      "type": "object",
+      "title": "Order",
+      "properties": {
+        "canceled": {
+          "$ref": "#/definitions/Canceled"
+        },
+        "created": {
+          "$ref": "#/definitions/Created"
+        },
+        "id": {
+          "type": "string",
+          "example": "151ff45d-9fcc-4df6-b221-cd7fcb1d7614"
+        },
+        "notes": {
+          "type": "string",
+          "example": "Big May 1st delivery."
+        },
+        "orderId": {
+          "type": "string",
+          "example": "ABC123-LMNOP"
+        },
+        "status": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "BASIC",
+            "SWAP"
+          ]
+        },
+        "vehicleTransferOrders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VehicleTransferOrderIds"
+          }
+        }
+      }
+    },
+    "OrderRequest": {
+      "type": "object",
+      "title": "OrderRequest",
+      "properties": {
+        "notes": {
+          "type": "string",
+          "example": "Our big May 1st order."
+        },
+        "type": {
+          "type": "string",
+          "description": "Options include:\n* SWAP\n* BASIC",
+          "enum": [
+            "BASIC",
+            "SWAP"
+          ]
+        },
+        "vehicleTransferOrders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VehicleTransferOrderRequest"
+          }
+        }
+      }
+    },
+    "OrderResponse": {
+      "type": "object",
+      "title": "OrderResponse",
+      "properties": {
+        "created": {
+          "$ref": "#/definitions/Created"
+        },
+        "id": {
+          "type": "string",
+          "example": "7e837a6c-1746-4da4-89e6-c87fae7df84d"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string",
+          "example": "ABC123-LMNOP"
+        },
+        "status": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "BASIC",
+            "SWAP"
+          ],
+          "example": "BASIC"
+        },
+        "vehicleTransferOrders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VehicleTransferOrderStatus"
+          }
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "Pageable": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pageNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "paged": {
+          "type": "boolean"
+        },
+        "sort": {
+          "$ref": "#/definitions/Sort"
+        },
+        "unpaged": {
+          "type": "boolean"
+        }
+      },
+      "title": "Pageable"
+    },
+    "PageOrder": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Order"
+          }
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "first": {
+          "type": "boolean"
+        },
+        "last": {
+          "type": "boolean"
+        },
+        "number": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfElements": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageable": {
+          "$ref": "#/definitions/Pageable"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sort": {
+          "$ref": "#/definitions/Sort"
+        },
+        "totalElements": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPages": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "PageOrder"
+    },
+    "PageVehicleTransferOrder": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VehicleTransferOrder"
+          }
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "first": {
+          "type": "boolean"
+        },
+        "last": {
+          "type": "boolean"
+        },
+        "number": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfElements": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageable": {
+          "$ref": "#/definitions/Pageable"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sort": {
+          "$ref": "#/definitions/Sort"
+        },
+        "totalElements": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPages": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "PageVehicleTransferOrder"
+    },
+    "Payment": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sourceType": {
+          "type": "string"
+        }
+      },
+      "title": "Payment"
+    },
+    "Sort": {
+      "type": "object",
+      "properties": {
+        "empty": {
+          "type": "boolean"
+        },
+        "sorted": {
+          "type": "boolean"
+        },
+        "unsorted": {
+          "type": "boolean"
+        }
+      },
+      "title": "Sort"
+    },
+    "State": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "State"
+    },
+    "StateLocation": {
+      "type": "object",
+      "properties": {
+        "accuracy": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "geolocation": {
+          "$ref": "#/definitions/Geolocation"
+        },
+        "time": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "StateLocation"
+    },
+    "States": {
+      "type": "object",
+      "properties": {
+        "accepted": {
+          "$ref": "#/definitions/State"
+        },
+        "claimed": {
+          "$ref": "#/definitions/State"
+        },
+        "delivered": {
+          "$ref": "#/definitions/StateLocation"
+        },
+        "pickedUp": {
+          "$ref": "#/definitions/StateLocation"
+        }
+      },
+      "title": "States"
+    },
+    "URI": {
+      "type": "object",
+      "properties": {
+        "absolute": {
+          "type": "boolean"
+        },
+        "authority": {
+          "type": "string"
+        },
+        "fragment": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "opaque": {
+          "type": "boolean"
+        },
+        "path": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "query": {
+          "type": "string"
+        },
+        "rawAuthority": {
+          "type": "string"
+        },
+        "rawFragment": {
+          "type": "string"
+        },
+        "rawPath": {
+          "type": "string"
+        },
+        "rawQuery": {
+          "type": "string"
+        },
+        "rawSchemeSpecificPart": {
+          "type": "string"
+        },
+        "rawUserInfo": {
+          "type": "string"
+        },
+        "scheme": {
+          "type": "string"
+        },
+        "schemeSpecificPart": {
+          "type": "string"
+        },
+        "userInfo": {
+          "type": "string"
+        }
+      },
+      "title": "URI"
+    },
+    "URL": {
+      "type": "object",
+      "properties": {
+        "authority": {
+          "type": "string"
+        },
+        "content": {
+          "type": "object"
+        },
+        "defaultPort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "file": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "userInfo": {
+          "type": "string"
+        }
+      },
+      "title": "URL"
+    },
+    "Vehicle": {
+      "type": "object",
+      "title": "Vehicle",
+      "properties": {
+        "color": {
+          "type": "string",
+          "example": "Blue"
+        },
+        "isOperational": {
+          "type": "boolean",
+          "example": true
+        },
+        "isOverSized": {
+          "type": "boolean",
+          "example": false
+        },
+        "make": {
+          "type": "string",
+          "example": "BMW"
+        },
+        "model": {
+          "type": "string",
+          "example": "M3"
+        },
+        "notes": {
+          "type": "string",
+          "example": "She's a beauty."
+        },
+        "odometer": {
+          "type": "integer",
+          "format": "int32",
+          "example": 10000
+        },
+        "stockNumber": {
+          "type": "string",
+          "example": "1234"
+        },
+        "type": {
+          "type": "string"
+        },
+        "vin": {
+          "type": "string",
+          "example": "2C3KA53G68H269241"
+        },
+        "year": {
+          "type": "integer",
+          "format": "int32",
+          "example": 2015
+        }
+      }
+    },
+    "VehiclePhoto": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sequence": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "thumbnailUrl": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "title": "VehiclePhoto"
+    },
+    "VehiclePhotos": {
+      "type": "object",
+      "properties": {
+        "dropoffPhotos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VehiclePhoto"
+          }
+        },
+        "pickupPhotos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VehiclePhoto"
+          }
+        }
+      },
+      "title": "VehiclePhotos"
+    },
+    "VehicleTransferOrder": {
+      "type": "object",
+      "title": "VehicleTransferOrder",
+      "properties": {
+        "created": {
+          "$ref": "#/definitions/Created"
+        },
+        "directions": {
+          "$ref": "#/definitions/DetailedDirections"
+        },
+        "driverInfo": {
+          "$ref": "#/definitions/DriverInfo"
+        },
+        "fare": {
+          "$ref": "#/definitions/Fare"
+        },
+        "geolocation": {
+          "$ref": "#/definitions/Geolocation"
+        },
+        "id": {
+          "type": "string",
+          "example": "7a765a49-6b21-4368-937e-8ce4981d8eff"
+        },
+        "notes": {
+          "type": "string",
+          "example": "Notes about this vehicle transfer."
+        },
+        "orderId": {
+          "type": "string",
+          "example": "ABC123-LMNOP"
+        },
+        "payer": {
+          "$ref": "#/definitions/Company"
+        },
+        "payment": {
+          "$ref": "#/definitions/Payment"
+        },
+        "reconciliationCode": {
+          "type": "string",
+          "example": "RBCON2019"
+        },
+        "states": {
+          "$ref": "#/definitions/States"
+        },
+        "status": {
+          "type": "string",
+          "example": "IN_TRANSIT"
+        },
+        "transporter": {
+          "$ref": "#/definitions/Company"
+        },
+        "vehicle": {
+          "$ref": "#/definitions/Vehicle"
+        }
+      }
+    },
+    "VehicleTransferOrderIds": {
+      "type": "object",
+      "title": "VehicleTransferOrderIds",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "f7a7a77e-1afb-47b9-8d19-92591590ed33"
+        },
+        "orderId": {
+          "type": "string",
+          "example": "ABC123-LMNOP"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "VehicleTransferOrderRequest": {
+      "type": "object",
+      "title": "VehicleTransferOrderRequest",
+      "properties": {
+        "direction": {
+          "$ref": "#/definitions/DetailedDirectionsRequest"
+        },
+        "fare": {
+          "$ref": "#/definitions/FareOptionsRequest"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "payer": {
+          "$ref": "#/definitions/Company"
+        },
+        "reconciliationCode": {
+          "type": "string",
+          "example": "PARKING_LOT"
+        },
+        "vehicle": {
+          "$ref": "#/definitions/Vehicle"
+        }
+      }
+    },
+    "VehicleTransferOrderStatus": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "error": {
+          "type": "string",
+          "example": "Error 123"
+        },
+        "id": {
+          "type": "string",
+          "example": "7e837a6c-1746-4da4-89e6-c87fae7df84d"
+        },
+        "orderId": {
+          "type": "string",
+          "example": "A10023-20001234"
+        }
+      },
+      "title": "VehicleTransferOrderStatus"
+    },
+    "Window": {
+      "type": "object",
+      "properties": {
+        "end": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "priority": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "Window"
+    }
+  },
+  "schemes": [
+    "https"
+  ]
+}
