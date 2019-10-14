@@ -23,16 +23,16 @@
   "basePath": "/",
   "tags": [
     {
-      "name": "Driver Location",
-      "description": "The Driver Location operations."
+      "name": "Fares",
+      "description": "The Fare quote operations."
     },
     {
       "name": "Orders",
-      "description": "The Orders placed to RunBuggy operations."
+      "description": "The Order operations."
     },
     {
       "name": "Vehicle Transfer Orders",
-      "description": "The Single Vehicle Transfer Order operations."
+      "description": "The Vehicle Transfer Order operations."
     }
   ],
   "paths": {
@@ -721,6 +721,54 @@
         "deprecated": false,
         "description": "Retrieve specified Vehicle Transfer Order."
       }
+    },
+    "/fares": {
+      "post": {
+        "tags": [
+          "Fares"
+        ],
+        "summary": "Retrieve fares",
+        "operationId": "getFaresUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "fareRequest",
+            "description": "fareRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FareRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FareResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Retrieve fare information based on the provided information."
+      }
     }
   },
   "definitions": {
@@ -897,6 +945,38 @@
         },
         "urgency": {
           "type": "string"
+        }
+      }
+    },
+    "FareRequest": {
+      "type": "object",
+      "title": "FareRequest",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of Order",
+          "enum": [
+            "BASIC",
+            "SWAP"
+          ]
+        },
+        "vehicleTransferOrders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VehicleTransferOrderRequest"
+          }
+        }
+      }
+    },
+    "FareResponse": {
+      "type": "object",
+      "title": "FareResponse",
+      "properties": {
+        "": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VehicleFare"
+          }
         }
       }
     },
@@ -1497,6 +1577,23 @@
           "type": "integer",
           "format": "int32",
           "example": 2015
+        }
+      }
+    },
+    "VehicleFare": {
+      "type": "object",
+      "description": "The fare estimates for an individual Vehicle Transfer.",
+      "title": "VehicleFare",
+      "properties": {
+        "vehicle": {
+          "$ref": "#/definitions/Vehicle"
+        },
+        "fare": {
+          "$ref": "#/definitions/Fare"
+        },
+        "amount": {
+          "type": "number",
+          "format": "currency"
         }
       }
     },
