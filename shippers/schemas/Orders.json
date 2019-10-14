@@ -975,7 +975,7 @@
         "": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VehicleFare"
+            "$ref": "#/definitions/VehicleTransferFare"
           }
         }
       }
@@ -1580,10 +1580,10 @@
         }
       }
     },
-    "VehicleFare": {
+    "VehicleTransferFare": {
       "type": "object",
       "description": "The fare estimates for an individual Vehicle Transfer.",
-      "title": "VehicleFare",
+      "title": "VehicleTransferFare",
       "properties": {
         "directions": {
           "$ref": "#/definitions/DetailedDirectionsRequest"
