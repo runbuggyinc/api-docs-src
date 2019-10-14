@@ -1585,15 +1585,14 @@
       "description": "The fare estimates for an individual Vehicle Transfer.",
       "title": "VehicleFare",
       "properties": {
-        "vehicle": {
-          "$ref": "#/definitions/Vehicle"
+        "directions": {
+          "$ref": "#/definitions/DetailedDirectionsRequest"
         },
         "fare": {
           "$ref": "#/definitions/Fare"
         },
-        "amount": {
-          "type": "number",
-          "format": "currency"
+        "vehicle": {
+          "$ref": "#/definitions/Vehicle"
         }
       }
     },
@@ -1711,7 +1710,7 @@
       "type": "object",
       "title": "VehicleTransferOrderRequest",
       "properties": {
-        "direction": {
+        "directions": {
           "$ref": "#/definitions/DetailedDirectionsRequest"
         },
         "fare": {
