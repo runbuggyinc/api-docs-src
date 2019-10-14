@@ -14,5 +14,3 @@ curl -X POST \
   -H 'Content-Type: application/json' \
 }'
 ```
-
-test2
