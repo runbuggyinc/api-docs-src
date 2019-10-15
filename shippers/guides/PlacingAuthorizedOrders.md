@@ -1,16 +1,15 @@
-# Placing Orders for another Company
+# Placing Orders for Authorized Company
 
 ## Overview
 This guide is for companies that need to place Orders on behalf of other companies.
 
 ### Requirements
 You must be Authorized to create an Order on behalf of the intended Company. Your Runbuggy support contact
- can work with you in order to establish this authorization.
+ can work with you to establish this authorization.
 
 ### Steps
 * Retrieve target Authorized Company's ID.
 * Create a new Order request and provide target Company's ID for the payer.
-* *(Optional)* Retrieve an Order Quote.
 * Place the Order.
 
 ## Retrieving the Authorized Dealer
@@ -22,18 +21,18 @@ There are 2 options for retrieving an Authorized Company:
 2. [Retrieve a specific Company](https://runbuggy.docs.stoplight.io/reference/companies/companies/getcompaniesthatauthorizedcompanyidbyuseridusingget) for whom you are Authorized by providing their username.
 
 ## Placing the Order
-Placing an Order on behalf of another Company is different than a normal request in only one way: You must specify the
- Payer.
-
 If you're just getting started with the API, check out the following:
 * For a general overview of placing an Order, see the [Shipping Vehicles guide](https://runbuggy.docs.stoplight.io/guides/shipping-vehicles).
 * For operation reference & examples, see the [Create Order](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost) reference.
 
+Placing an Order on behalf of another Company is different than a normal request in only one way: You must specify
+ the Authorized Company as the Payer.
+
 ### Specifying the Payer
 *Important: Always check the [Create Order](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost) reference for the most accurate documentation.*
 
-The most important step with placing the Order is to correctly specify the Payer. Assuming you authorized to place an
- Order for a Company with the ID `7b34ba14-1f7a-4492-9fd7-4bef02ad6256`, consider the following request example:
+Assuming you authorized to place an Order for a Company with the ID `7b34ba14-1f7a-4492-9fd7-4bef02ad6256`, consider
+ the following request example:
 ```json
 {
   "notes": "These are the orders for Ed's lot.",
@@ -67,5 +66,6 @@ The most important step with placing the Order is to correctly specify the Payer
 }
 ```
 
-The above example illustrates how you may create a Basic Order on behalf of the Company by providing their unique ID
- as the Payer.
+The above example would place a basic one vehicle Order. The Vehicle Transfer Order would be paid for by the Company
+ with ID `7b34ba14-1f7a-4492-9fd7-4bef02ad6256`. *Important*: Every Vehicle Transfer Order provided must specify the
+  correct payer. Omitting the payer information will result in the payer defaulting to your account.
