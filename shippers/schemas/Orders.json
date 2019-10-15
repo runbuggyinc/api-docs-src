@@ -23,10 +23,6 @@
   "basePath": "/",
   "tags": [
     {
-      "name": "Fares",
-      "description": "The Fare quote operations."
-    },
-    {
       "name": "Orders",
       "description": "The Order operations."
     },
@@ -718,13 +714,13 @@
         "description": "Retrieve specified Vehicle Transfer Order."
       }
     },
-    "/fares": {
+    "/orders/quote": {
       "post": {
         "tags": [
-          "Fares"
+          "Orders"
         ],
-        "summary": "Retrieve fares",
-        "operationId": "getFaresUsingPOST",
+        "summary": "Retrieve order quote",
+        "operationId": "getOrderQuoteUsingPOST",
         "consumes": [
           "application/json"
         ],
@@ -763,7 +759,7 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve fare information based on the provided information."
+        "description": "Retrieve fare quote based on the provided information."
       }
     }
   },
@@ -1178,11 +1174,12 @@
         },
         "type": {
           "type": "string",
-          "description": "Options include:\n* SWAP\n* BASIC",
           "enum": [
             "BASIC",
             "SWAP"
-          ]
+          ],
+          "example": "BASIC",
+          "description": "See Order.type enumeration for possible values."
         },
         "vehicleTransferOrders": {
           "type": "array",
