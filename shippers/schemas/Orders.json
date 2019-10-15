@@ -450,7 +450,7 @@
             "description": "VehicleTransferOrder",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/VehicleTransferOrder"
+              "$ref": "#/definitions/VehicleTransferOrderPatchRequest"
             }
           },
           {
@@ -462,20 +462,20 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK",
+          "202": {
+            "description": "Accepted",
             "schema": {
               "$ref": "#/definitions/VehicleTransferOrder"
             }
           },
-          "204": {
-            "description": "No Content"
+          "400": {
+            "description": "Forbidden"
           },
           "401": {
-            "description": "Unauthorized"
+            "description": ""
           },
           "403": {
-            "description": "Forbidden"
+            "description": ""
           }
         },
         "deprecated": false,
@@ -582,6 +582,7 @@
         "summary": "Retrieve gate pass",
         "operationId": "getGatePassUsingGET",
         "produces": [
+          "application/octet-stream",
           "application/json"
         ],
         "parameters": [
@@ -602,10 +603,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/InputStreamResource"
-            }
+            "description": "File"
           },
           "401": {
             "description": "Unauthorized"
@@ -618,7 +616,7 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve specified Gate Pass."
+        "description": "Retrieve specified Gate Pass file."
       }
     },
     "/vehicle-transfer-orders/{id}/photos": {
@@ -669,6 +667,7 @@
         "summary": "Retrieve vehicle transfer order photo",
         "operationId": "getVehiclePhotoUsingGET",
         "produces": [
+          "application/octet-stream",
           "application/json"
         ],
         "parameters": [
@@ -690,9 +689,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/InputStreamResource"
-            }
+            "schema": {}
           },
           "401": {
             "description": "Unauthorized"
@@ -705,7 +702,7 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve specified Vehicle Transfer Order."
+        "description": "Retrieve specified Vehicle Transfer Order photo file."
       }
     },
     "/orders/quote": {
@@ -960,60 +957,6 @@
         }
       }
     },
-    "File": {
-      "type": "object",
-      "properties": {
-        "absolute": {
-          "type": "boolean"
-        },
-        "absoluteFile": {
-          "$ref": "#/definitions/File"
-        },
-        "absolutePath": {
-          "type": "string"
-        },
-        "canonicalFile": {
-          "$ref": "#/definitions/File"
-        },
-        "canonicalPath": {
-          "type": "string"
-        },
-        "directory": {
-          "type": "boolean"
-        },
-        "file": {
-          "type": "boolean"
-        },
-        "freeSpace": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "hidden": {
-          "type": "boolean"
-        },
-        "name": {
-          "type": "string"
-        },
-        "parent": {
-          "type": "string"
-        },
-        "parentFile": {
-          "$ref": "#/definitions/File"
-        },
-        "path": {
-          "type": "string"
-        },
-        "totalSpace": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "usableSpace": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "title": "File"
-    },
     "GatePass": {
       "type": "object",
       "properties": {
@@ -1047,40 +990,6 @@
           "example": -115.64054689374996
         }
       }
-    },
-    "InputStream": {
-      "type": "object",
-      "title": "InputStream"
-    },
-    "InputStreamResource": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "type": "string"
-        },
-        "file": {
-          "$ref": "#/definitions/File"
-        },
-        "filename": {
-          "type": "string"
-        },
-        "inputStream": {
-          "$ref": "#/definitions/InputStream"
-        },
-        "open": {
-          "type": "boolean"
-        },
-        "readable": {
-          "type": "boolean"
-        },
-        "uri": {
-          "$ref": "#/definitions/URI"
-        },
-        "url": {
-          "$ref": "#/definitions/URL"
-        }
-      },
-      "title": "InputStreamResource"
     },
     "Location": {
       "type": "object",
@@ -1411,105 +1320,6 @@
       },
       "title": "States"
     },
-    "URI": {
-      "type": "object",
-      "properties": {
-        "absolute": {
-          "type": "boolean"
-        },
-        "authority": {
-          "type": "string"
-        },
-        "fragment": {
-          "type": "string"
-        },
-        "host": {
-          "type": "string"
-        },
-        "opaque": {
-          "type": "boolean"
-        },
-        "path": {
-          "type": "string"
-        },
-        "port": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "query": {
-          "type": "string"
-        },
-        "rawAuthority": {
-          "type": "string"
-        },
-        "rawFragment": {
-          "type": "string"
-        },
-        "rawPath": {
-          "type": "string"
-        },
-        "rawQuery": {
-          "type": "string"
-        },
-        "rawSchemeSpecificPart": {
-          "type": "string"
-        },
-        "rawUserInfo": {
-          "type": "string"
-        },
-        "scheme": {
-          "type": "string"
-        },
-        "schemeSpecificPart": {
-          "type": "string"
-        },
-        "userInfo": {
-          "type": "string"
-        }
-      },
-      "title": "URI"
-    },
-    "URL": {
-      "type": "object",
-      "properties": {
-        "authority": {
-          "type": "string"
-        },
-        "content": {
-          "type": "object"
-        },
-        "defaultPort": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "file": {
-          "type": "string"
-        },
-        "host": {
-          "type": "string"
-        },
-        "path": {
-          "type": "string"
-        },
-        "port": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "protocol": {
-          "type": "string"
-        },
-        "query": {
-          "type": "string"
-        },
-        "ref": {
-          "type": "string"
-        },
-        "userInfo": {
-          "type": "string"
-        }
-      },
-      "title": "URL"
-    },
     "Vehicle": {
       "type": "object",
       "title": "Vehicle",
@@ -1750,6 +1560,58 @@
         }
       },
       "title": "Window"
+    },
+    "VehicleTransferOrderPatchRequest": {
+      "type": "object",
+      "title": "VehicleTransferOrderPatchRequest",
+      "properties": {
+        "directions": {
+          "$ref": "#/definitions/DetailedDirectionsPatchRequest"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "reconciliationCode": {
+          "type": "string",
+          "example": "PARKING_LOT"
+        }
+      }
+    },
+    "DetailedDirectionsPatchRequest": {
+      "type": "object",
+      "title": "DetailedDirectionsPatchRequest",
+      "properties": {
+        "dropoff": {
+          "$ref": "#/definitions/LocationPatch"
+        },
+        "pickup": {
+          "$ref": "#/definitions/LocationPatch"
+        }
+      }
+    },
+    "LocationPatch": {
+      "type": "object",
+      "properties": {
+        "contact": {
+          "$ref": "#/definitions/Contact"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "windows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Window"
+          }
+        }
+      },
+      "title": "LocationPatch"
     }
   },
   "schemes": [
