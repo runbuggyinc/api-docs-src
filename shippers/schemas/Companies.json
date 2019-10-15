@@ -124,7 +124,7 @@
         },
         "type": {
           "type": "string",
-          "description": "Possible values:\n* AUCTION\n* DEALER",
+          "description": "See enumeration for possible values.",
           "enum": [
             "DEALER",
             "AUCTION"
