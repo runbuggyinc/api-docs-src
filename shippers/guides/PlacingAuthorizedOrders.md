@@ -8,9 +8,9 @@ You must be Authorized to create an Order on behalf of the intended Company. You
  can work with you to establish this authorization.
 
 ### Steps
-* Retrieve target Authorized Company's ID.
-* Create a new Order request and provide target Company's ID for the payer.
-* Place the Order.
+1. Retrieve target Authorized Company's ID.
+2. Create a new Order request and provide target Company's ID for the payer.
+3. Place the Order.
 
 ## Retrieving the Authorized Dealer
 The first step is the retrieve the Company information for whom you will be placing the Order. This is necessary in
