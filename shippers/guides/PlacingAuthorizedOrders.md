@@ -31,7 +31,7 @@ Placing an Order on behalf of another Company is different than a normal request
 ### Specifying the Payer
 *Important: Always check the [Create Order](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost) reference for the most accurate documentation.*
 
-Assuming you authorized to place an Order for a Company with the ID `7b34ba14-1f7a-4492-9fd7-4bef02ad6256`, consider
+Assuming you are authorized to place an Order for a Company with the ID `7b34ba14-1f7a-4492-9fd7-4bef02ad6256`, consider
  the following *Create Order* request example:
 ```json
 {
