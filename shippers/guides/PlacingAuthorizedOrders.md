@@ -32,7 +32,7 @@ Placing an Order on behalf of another Company is different than a normal request
 *Important: Always check the [Create Order](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost) reference for the most accurate documentation.*
 
 Assuming you authorized to place an Order for a Company with the ID `7b34ba14-1f7a-4492-9fd7-4bef02ad6256`, consider
- the following request example:
+ the following *Create Order* request example:
 ```json
 {
   "notes": "These are the orders for Ed's lot.",
