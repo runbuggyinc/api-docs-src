@@ -281,11 +281,11 @@
         "parameters": [
           {
             "in": "body",
-            "name": "cancelationReason",
-            "description": "cancelationReason",
+            "name": "cancellationReason",
+            "description": "cancellationReason",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/CancelationReason"
+              "$ref": "#/definitions/CancellationReason"
             }
           },
           {
@@ -501,11 +501,11 @@
         "parameters": [
           {
             "in": "body",
-            "name": "cancelationReason",
-            "description": "cancelationReason",
+            "name": "cancellationReason",
+            "description": "cancellationReason",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/CancelationReason"
+              "$ref": "#/definitions/CancellationReason"
             }
           },
           {
@@ -734,7 +734,7 @@
             "description": "fareRequest",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/FareRequest"
+              "$ref": "#/definitions/OrderQuoteRequest"
             }
           }
         ],
@@ -742,20 +742,14 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/FareResponse"
+              "$ref": "#/definitions/OrderQuoteResponse"
             }
-          },
-          "201": {
-            "description": "Created"
           },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
           }
         },
         "deprecated": false,
@@ -764,7 +758,7 @@
     }
   },
   "definitions": {
-    "CancelationReason": {
+    "CancellationReason": {
       "type": "object",
       "properties": {
         "other": {
@@ -774,7 +768,7 @@
           "type": "string"
         }
       },
-      "title": "CancelationReason"
+      "title": "CancellationReason"
     },
     "Canceled": {
       "type": "object",
@@ -940,13 +934,13 @@
         }
       }
     },
-    "FareRequest": {
+    "OrderQuoteRequest": {
       "type": "object",
-      "title": "FareRequest",
+      "title": "OrderQuoteRequest",
       "properties": {
         "type": {
           "type": "string",
-          "description": "The type of Order",
+          "description": "See Order.type enumeration for possible values.",
           "enum": [
             "BASIC",
             "SWAP"
@@ -960,11 +954,11 @@
         }
       }
     },
-    "FareResponse": {
+    "OrderQuoteResponse": {
       "type": "object",
-      "title": "FareResponse",
+      "title": "OrderQuoteResponse",
       "properties": {
-        "": {
+        "vehicleTransferOrders": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/VehicleTransferFare"
