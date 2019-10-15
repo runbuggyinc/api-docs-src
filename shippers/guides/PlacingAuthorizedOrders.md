@@ -67,5 +67,7 @@ Assuming you authorized to place an Order for a Company with the ID `7b34ba14-1f
 ```
 
 The above example would place a basic one vehicle Order. The Vehicle Transfer Order would be paid for by the Company
- with ID `7b34ba14-1f7a-4492-9fd7-4bef02ad6256`. *Important*: Every Vehicle Transfer Order provided must specify the
-  correct payer. Omitting the payer information will result in the payer defaulting to your account.
+ with ID `7b34ba14-1f7a-4492-9fd7-4bef02ad6256`. 
+ 
+ *Important*: Every Vehicle Transfer Order provided must specify the
+  correct Payer. Omitting the Payer information will result in the Payer defaulting to the account making the request.
