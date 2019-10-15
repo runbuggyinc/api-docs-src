@@ -135,5 +135,11 @@
   },
   "schemes": [
     "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
   ]
 }

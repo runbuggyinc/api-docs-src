@@ -8,10 +8,9 @@
   "info": {
     "title": "Authentication",
     "version": "1.0",
-    "description": "Authentication provides the means of retrieving the access token to sign requests. Check out the [Authentication Guide](https://runbuggy.docs.stoplight.io/guides/authentication-guide) for more info. Testing",
+    "description": "Authentication provides the means of retrieving the access token to sign requests. Check out the [Authentication Guide](https://runbuggy.docs.stoplight.io/guides/authentication-guide) for more info.",
     "contact": {
       "name": "Runbuggy",
-      "url": "http://runbuggy.com",
       "email": "support@runbuggy.com"
     }
   },
@@ -25,6 +24,9 @@
             "schema": {
               "$ref": "#/definitions/login-response"
             }
+          },
+          "400": {
+            "description": ""
           }
         },
         "parameters": [
