@@ -14,7 +14,7 @@ You must be Authorized to create an Order on behalf of the intended Company. You
 
 ## Retrieving the Authorized Dealer
 The first step is the retrieve the Company information for whom you will be placing the Order. This is necessary in
- order to get their ID to use in the following steps.
+ order to get the Company ID to use in the following steps.
  
 There are 2 options for retrieving an Authorized Company:
 1. [Retrieve a list](https://runbuggy.docs.stoplight.io/reference/companies/companies/getcompaniesthatauthorizedcompanyusingget) of all Companies for whom you are Authorized.
