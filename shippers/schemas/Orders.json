@@ -216,6 +216,9 @@
               "$ref": "#/definitions/OrderResponse"
             }
           },
+          "202": {
+            "description": "The request is being processed."
+          },
           "400": {
             "description": ""
           },
