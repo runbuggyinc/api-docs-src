@@ -68,7 +68,11 @@
           "type": "string",
           "example": "supersecret"
         }
-      }
+      },
+      "required": [
+        "username",
+        "password"
+      ]
     },
     "login-response": {
       "type": "object",
@@ -97,7 +101,13 @@
           "example": "5f410h7qp48naudaonq5toop35rqc391",
           "description": "Used for signing requests."
         }
-      }
+      },
+      "required": [
+        "username",
+        "roles",
+        "token_type",
+        "access_token"
+      ]
     }
   },
   "tags": [
