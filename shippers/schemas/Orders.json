@@ -108,7 +108,12 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve paginated orders."
+        "description": "Retrieve paginated orders.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -222,7 +227,12 @@
           }
         },
         "deprecated": false,
-        "description": "Create a new Order and nested Vehicle Transfer Order(s)."
+        "description": "Create a new Order and nested Vehicle Transfer Order(s).",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/orders/{id}": {
@@ -262,7 +272,12 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve specific order."
+        "description": "Retrieve specific order.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/orders/{id}/cancel": {
@@ -311,7 +326,12 @@
           }
         },
         "deprecated": false,
-        "description": "Cancel specified order."
+        "description": "Cancel specified order.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/vehicle-transfer-orders": {
@@ -389,7 +409,12 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve a paginated Vehicle Transfer Orders."
+        "description": "Retrieve a paginated Vehicle Transfer Orders.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/vehicle-transfer-orders/{id}": {
@@ -429,7 +454,12 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve specified Vehicle Transfer Order."
+        "description": "Retrieve specified Vehicle Transfer Order.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       },
       "patch": {
         "tags": [
@@ -479,7 +509,12 @@
           }
         },
         "deprecated": false,
-        "description": "Update specified Vehicle Transfer Order."
+        "description": "Update specified Vehicle Transfer Order.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/vehicle-transfer-orders/{id}/cancel": {
@@ -528,7 +563,12 @@
           }
         },
         "deprecated": false,
-        "description": "Cancel specified Vehicle Transfer Order."
+        "description": "Cancel specified Vehicle Transfer Order.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/vehicle-transfer-orders/{id}/gate-passes": {
@@ -571,7 +611,12 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve paginated Gate Passes."
+        "description": "Retrieve paginated Gate Passes.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/vehicle-transfer-orders/{id}/gate-passes/{passId}": {
@@ -616,7 +661,12 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve specified Gate Pass file."
+        "description": "Retrieve specified Gate Pass file.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/vehicle-transfer-orders/{id}/photos": {
@@ -656,7 +706,12 @@
           }
         },
         "deprecated": false,
-        "description": "Get paginated Vehicle Transfer Order photos."
+        "description": "Get paginated Vehicle Transfer Order photos.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/vehicle-transfer-orders/{id}/photos/{photoId}": {
@@ -702,7 +757,12 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve specified Vehicle Transfer Order photo file."
+        "description": "Retrieve specified Vehicle Transfer Order photo file.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/orders/quote": {
@@ -744,7 +804,12 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve fare quote based on the provided information."
+        "description": "Retrieve fare quote based on the provided information.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/orders/quote/{id}": {
@@ -784,7 +849,12 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve Order Quote. Note that Order Quotes are only valid for a set amount of time."
+        "description": "Retrieve Order Quote. Note that Order Quotes are only valid for a set amount of time.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     }
   },
@@ -1759,5 +1829,13 @@
   },
   "schemes": [
     "https"
-  ]
+  ],
+  "securityDefinitions": {
+    "Authorization": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "description": "See the [Authentication Guide](https://runbuggy.docs.stoplight.io/guides/authentication-guide)."
+    }
+  }
 }
