@@ -14,8 +14,8 @@
       "url": "https://runbuggy.com/terms/"
     }
   },
-  "host": "www.runbuggy.com",
-  "basePath": "/v2/api",
+  "host": "apps.runbuggy.com",
+  "basePath": "/testing-v2/api",
   "tags": [
     {
       "name": "Companies",

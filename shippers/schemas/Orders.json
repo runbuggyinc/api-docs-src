@@ -19,8 +19,8 @@
       "url": "https://runbuggy.com/terms/"
     }
   },
-  "host": "runbuggy.com",
-  "basePath": "/",
+  "host": "apps.runbuggy.com",
+  "basePath": "/testing-v2/api",
   "tags": [
     {
       "name": "Orders",

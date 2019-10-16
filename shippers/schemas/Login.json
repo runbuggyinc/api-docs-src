@@ -14,7 +14,8 @@
       "email": "support@runbuggy.com"
     }
   },
-  "host": "runbuggy.com",
+  "host": "apps.runbuggy.com",
+  "basePath": "/testing-v2/api",
   "paths": {
     "/login": {
       "post": {
