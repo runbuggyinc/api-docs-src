@@ -33,88 +33,6 @@
   ],
   "paths": {
     "/orders": {
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "summary": "Find orders",
-        "operationId": "findOrderPaginatedUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "offset",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int64"
-          },
-          {
-            "name": "pageNumber",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "paged",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "sort.sorted",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "sort.unsorted",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "unpaged",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/PageOrder"
-            },
-            "examples": {}
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false,
-        "description": "Retrieve paginated orders.",
-        "security": [
-          {
-            "Authorization": []
-          }
-        ]
-      },
       "post": {
         "tags": [
           "Orders"
@@ -231,6 +149,88 @@
         },
         "deprecated": false,
         "description": "Create a new Order and nested Vehicle Transfer Order(s).",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Find orders",
+        "operationId": "findOrderPaginatedUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.sorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.unsorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "unpaged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PageOrder"
+            },
+            "examples": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Retrieve paginated orders.",
         "security": [
           {
             "Authorization": []
@@ -1166,13 +1166,19 @@
           "type": "string",
           "example": "151ff45d-9fcc-4df6-b221-cd7fcb1d7614"
         },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "notes": {
           "type": "string",
           "example": "Big May 1st delivery."
         },
-        "orderId": {
+        "referenceNumber": {
           "type": "string",
-          "example": "ABC123-LMNOP"
+          "example": "31232331"
         },
         "status": {
           "type": "string"
@@ -1189,18 +1195,12 @@
           "items": {
             "$ref": "#/definitions/VehicleTransferOrderIds"
           }
-        },
-        "labels": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
         }
       },
       "required": [
         "created",
         "id",
-        "orderId",
+        "referenceNumber",
         "status",
         "type",
         "vehicleTransferOrders"
@@ -1613,19 +1613,6 @@
     "VehicleTransferOrder": {
       "type": "object",
       "title": "VehicleTransferOrder",
-      "required": [
-        "created",
-        "directions",
-        "driverInfo",
-        "fare",
-        "geolocation",
-        "id",
-        "orderId",
-        "states",
-        "status",
-        "transporter",
-        "vehicle"
-      ],
       "properties": {
         "created": {
           "$ref": "#/definitions/Created"
@@ -1664,6 +1651,10 @@
           "type": "string",
           "example": "RBCON2019"
         },
+        "referenceNumber": {
+          "type": "string",
+          "example": "2000232-123432"
+        },
         "states": {
           "$ref": "#/definitions/States"
         },
@@ -1677,24 +1668,34 @@
         "vehicle": {
           "$ref": "#/definitions/Vehicle"
         }
-      }
+      },
+      "required": [
+        "created",
+        "directions",
+        "driverInfo",
+        "fare",
+        "geolocation",
+        "id",
+        "orderId",
+        "states",
+        "status",
+        "transporter",
+        "vehicle",
+        "referenceNumber"
+      ]
     },
     "VehicleTransferOrderIds": {
       "type": "object",
       "title": "VehicleTransferOrderIds",
+      "required": [
+        "id"
+      ],
       "properties": {
         "id": {
           "type": "string",
           "example": "f7a7a77e-1afb-47b9-8d19-92591590ed33"
-        },
-        "orderId": {
-          "type": "string",
-          "example": "ABC123-LMNOP"
         }
-      },
-      "required": [
-        "id"
-      ]
+      }
     },
     "VehicleTransferOrderRequest": {
       "type": "object",
