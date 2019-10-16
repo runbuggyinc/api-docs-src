@@ -297,8 +297,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "202": {
+            "description": "ACCEPTED"
           },
           "401": {
             "description": "Unauthorized"
@@ -514,8 +514,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "202": {
+            "description": "ACCCEPTED"
           },
           "401": {
             "description": "Unauthorized"
@@ -783,7 +783,8 @@
             "description": "Not Found"
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "description": "Retrieve Order Quote. Note that Order Quotes are only valid for a set amount of time."
       }
     }
   },
@@ -987,7 +988,11 @@
         "fare": {
           "$ref": "#/definitions/FareOptionsRequest"
         }
-      }
+      },
+      "required": [
+        "type",
+        "vehicleTransferOrders"
+      ]
     },
     "OrderQuoteResponse": {
       "type": "object",
@@ -1009,6 +1014,10 @@
     },
     "GatePass": {
       "type": "object",
+      "title": "GatePass",
+      "required": [
+        "id"
+      ],
       "properties": {
         "created": {
           "$ref": "#/definitions/Created"
@@ -1022,8 +1031,7 @@
         "url": {
           "type": "string"
         }
-      },
-      "title": "GatePass"
+      }
     },
     "Geolocation": {
       "type": "object",
@@ -1115,7 +1123,15 @@
             "type": "string"
           }
         }
-      }
+      },
+      "required": [
+        "created",
+        "id",
+        "orderId",
+        "status",
+        "type",
+        "vehicleTransferOrders"
+      ]
     },
     "OrderRequest": {
       "type": "object",
@@ -1143,7 +1159,11 @@
         "fare": {
           "$ref": "#/definitions/FareOptionsRequest"
         }
-      }
+      },
+      "required": [
+        "type",
+        "vehicleTransferOrders"
+      ]
     },
     "OrderResponse": {
       "type": "object",
@@ -1182,7 +1202,12 @@
         }
       },
       "required": [
-        "id"
+        "created",
+        "id",
+        "orderId",
+        "status",
+        "type",
+        "vehicleTransferOrders"
       ]
     },
     "Pageable": {
@@ -1214,6 +1239,20 @@
     },
     "PageOrder": {
       "type": "object",
+      "title": "PageOrder",
+      "required": [
+        "content",
+        "empty",
+        "first",
+        "last",
+        "number",
+        "numberOfElements",
+        "pageable",
+        "size",
+        "sort",
+        "totalElements",
+        "totalPages"
+      ],
       "properties": {
         "content": {
           "type": "array",
@@ -1256,11 +1295,24 @@
           "type": "integer",
           "format": "int32"
         }
-      },
-      "title": "PageOrder"
+      }
     },
     "PageVehicleTransferOrder": {
       "type": "object",
+      "title": "PageVehicleTransferOrder",
+      "required": [
+        "content",
+        "empty",
+        "first",
+        "last",
+        "number",
+        "numberOfElements",
+        "pageable",
+        "size",
+        "sort",
+        "totalElements",
+        "totalPages"
+      ],
       "properties": {
         "content": {
           "type": "array",
@@ -1303,8 +1355,7 @@
           "type": "integer",
           "format": "int32"
         }
-      },
-      "title": "PageVehicleTransferOrder"
+      }
     },
     "Payment": {
       "type": "object",
@@ -1448,6 +1499,10 @@
     },
     "VehiclePhoto": {
       "type": "object",
+      "title": "VehiclePhoto",
+      "required": [
+        "id"
+      ],
       "properties": {
         "id": {
           "type": "string"
@@ -1462,8 +1517,7 @@
         "url": {
           "type": "string"
         }
-      },
-      "title": "VehiclePhoto"
+      }
     },
     "VehiclePhotos": {
       "type": "object",
@@ -1486,6 +1540,19 @@
     "VehicleTransferOrder": {
       "type": "object",
       "title": "VehicleTransferOrder",
+      "required": [
+        "created",
+        "directions",
+        "driverInfo",
+        "fare",
+        "geolocation",
+        "id",
+        "orderId",
+        "states",
+        "status",
+        "transporter",
+        "vehicle"
+      ],
       "properties": {
         "created": {
           "$ref": "#/definitions/Created"
