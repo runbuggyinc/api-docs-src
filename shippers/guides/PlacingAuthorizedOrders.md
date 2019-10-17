@@ -7,12 +7,7 @@ This guide is for companies that need to place Orders on behalf of other compani
 You must be Authorized to create an Order on behalf of the intended Company. Your Runbuggy support contact
  can work with you to establish this authorization.
 
-### Steps
-1. Retrieve target Authorized Company's ID.
-2. Create a new Order request and provide target Company's ID for the payer.
-3. Place the Order.
-
-## Retrieving the Authorized Company
+## Step 1: Retrieve the Authorized Company
 The first step is the retrieve the Company information for whom you will be placing the Order. This is necessary in
  order to get the Company ID to use in the following steps.
  
@@ -20,7 +15,7 @@ There are 2 options for retrieving an Authorized Company:
 1. [Retrieve a list](https://runbuggy.docs.stoplight.io/reference/companies/companies/getcompaniesthatauthorizedcompanyusingget) of all Companies for whom you are Authorized.
 2. [Retrieve a specific Company](https://runbuggy.docs.stoplight.io/reference/companies/companies/getcompaniesthatauthorizedcompanyidbyuseridusingget) for whom you are Authorized by providing their username.
 
-## Placing the Order
+## Step 2: Place the Order
 If you're just getting started with the API, check out the following:
 * For a general overview of placing an Order, see the [Shipping Vehicles guide](https://runbuggy.docs.stoplight.io/guides/shipping-vehicles).
 * For operation reference & examples, see the [Create Order](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost) reference.
