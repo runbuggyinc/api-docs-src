@@ -8,6 +8,6 @@ API operations may be tested from the the documentation.
  more information. Copy the access token.
 2. Navigate to the API operation you wish to test. For example, [Order creation](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost).
 3. Under [Send a Test Request](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost#send-a-test-request), you will see an $$.env var called `Authorization`. Set the value to `Bearer {Your Token}`.
-4. Click send to perform the Test Request.
+4. Click *Send* to perform the Test Request.
 
 After setting the Authorization value once, it should be pre-populated on subsequent pages.
