@@ -1,4 +1,4 @@
-# Performing Tests from the API Reference
+# Performing Tests in the API Reference
 API operations may be tested from the the documentation. 
 
 ![Testing](https://api-documentation-assets.s3-us-west-2.amazonaws.com/testing.gif)
