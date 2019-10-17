@@ -12,7 +12,7 @@ You must be Authorized to create an Order on behalf of the intended Company. You
 2. Create a new Order request and provide target Company's ID for the payer.
 3. Place the Order.
 
-## Retrieving the Authorized Dealer
+## Retrieving the Authorized Company
 The first step is the retrieve the Company information for whom you will be placing the Order. This is necessary in
  order to get the Company ID to use in the following steps.
  
