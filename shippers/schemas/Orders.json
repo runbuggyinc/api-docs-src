@@ -1554,22 +1554,6 @@
         }
       }
     },
-    "VehicleTransferFare": {
-      "type": "object",
-      "description": "The fare estimates for an individual Vehicle Transfer.",
-      "title": "VehicleTransferFare",
-      "properties": {
-        "directions": {
-          "$ref": "#/definitions/DetailedDirectionsRequest"
-        },
-        "fare": {
-          "$ref": "#/definitions/Fare"
-        },
-        "vehicle": {
-          "$ref": "#/definitions/Vehicle"
-        }
-      }
-    },
     "VehiclePhoto": {
       "type": "object",
       "title": "VehiclePhoto",
