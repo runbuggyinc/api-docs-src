@@ -230,7 +230,7 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve paginated orders.",
+        "description": "Retrieve paginated Orders.",
         "security": [
           {
             "Authorization": []
