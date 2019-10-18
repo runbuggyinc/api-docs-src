@@ -1,6 +1,6 @@
 # Example Data
 
-Click fields to show example data and validation information:
+Click Properties to reveal Example and Validation data:
 
 ![Show Example](https://api-documentation-assets.s3-us-west-2.amazonaws.com/Show-Examples.png)
 
