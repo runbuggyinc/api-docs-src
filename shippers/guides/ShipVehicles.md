@@ -6,4 +6,4 @@
 
 ---
 ### [Example JSON](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost) of placing an order
-### [Send a Test](https://runbuggy.docs.stoplight.io/reference/login/token/login#send-a-test-request) request
+### [Send a Test](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost#send-a-test-request) request
