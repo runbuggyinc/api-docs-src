@@ -1,17 +1,18 @@
 # Pagination
 
-Paginated resources can be retrieved using a variety of query params, including:
+Paginated resources support query params:
 * offset
 * pageNumber
 * pageSize
 * sort
 
-Resources are returned in a common page format. Consider this example of paginated Orders. Note that the Order properties have been omitted to make it easier to see pagination properties specifically.
+
+And returned in a common format:
 ```
 {
    "content":[
       {
-				//Order
+        //Order
       }
    ],
    "empty":false,
