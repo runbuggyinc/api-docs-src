@@ -6,7 +6,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "description": "### Place Orders to [Ship Vehicles](https://runbuggy.docs.stoplight.io/guides/ship-vehicles)",
+    "description": "### [Create Orders](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost) to Ship Vehicles.",
     "version": "1.0",
     "title": "Orders",
     "termsOfService": "https://runbuggy.com/terms/",
