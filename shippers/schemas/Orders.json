@@ -329,7 +329,7 @@
           }
         },
         "deprecated": false,
-        "description": "Cancel specified order.",
+        "description": "Cancel specified Order. If vehicles have shipped you may no longer cancel Order.",
         "security": [
           {
             "Authorization": []
