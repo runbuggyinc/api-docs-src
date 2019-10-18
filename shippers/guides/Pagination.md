@@ -7,7 +7,7 @@ Paginated resources support query params:
 * sort
 
 
-And returned in a common format:
+Paginated resources are returned in a common format:
 ```
 {
    "content":[
