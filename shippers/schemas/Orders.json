@@ -148,7 +148,7 @@
           }
         },
         "deprecated": false,
-        "description": "Create a new Order and nested Vehicle Transfer Order(s).",
+        "description": "Create an Order to ship vehicles.",
         "security": [
           {
             "Authorization": []
