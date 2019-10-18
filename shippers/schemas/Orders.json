@@ -1224,12 +1224,14 @@
           "description": "See Order.type enumeration for possible values."
         },
         "vehicleTransferOrders": {
+          "description": "Vehicles transfer orders.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/VehicleTransferOrderRequest"
           }
         },
         "fare": {
+          "description": "Fare options.",
           "$ref": "#/definitions/FareOptionsRequest"
         }
       },
