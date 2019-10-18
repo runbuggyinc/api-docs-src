@@ -11,6 +11,6 @@ Example secure request:
 curl --request POST \
   --url https://apps.runbuggy.com/testing-v2/api/orders \
   --header 'authorization: Bearer tfep1l767r0tolbln9f2apbalfamd2ok' \
-  --header 'content-type: application/json'
-\ --data '{}'
+  --header 'content-type: application/json' \ 
+  --data '{}'
 ```
