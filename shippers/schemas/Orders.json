@@ -243,7 +243,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Retrieve an order",
+        "summary": "Retrieve an Order",
         "operationId": "getOrderUsingGET",
         "produces": [
           "application/json"
@@ -288,7 +288,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Cancel an order",
+        "summary": "Cancel an Order",
         "operationId": "cancelOrderUsingPOST",
         "consumes": [
           "application/json"
@@ -807,7 +807,7 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve fare quote based on the provided information.",
+        "description": "Quote an Order.",
         "security": [
           {
             "Authorization": []
