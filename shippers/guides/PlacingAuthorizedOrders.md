@@ -12,9 +12,10 @@ Options:
 * [Retrieve a specific Company](https://runbuggy.docs.stoplight.io/reference/companies/companies/getcompaniesthatauthorizedcompanyidbyuseridusingget) for whom you are Authorized by providing their username.
 
 ## Step 2: Create Order with other Payer
-[Create Order](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost) reference.
+[Create Order](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost) using the authorized
+ company as the payer.
 
-To place an Order for a Company with the ID `7b34ba14-1f7a-4492-9fd7-4bef02ad6256`:
+Request to Create Order for Company with the ID `7b34ba14-1f7a-4492-9fd7-4bef02ad6256`:
 ```json
 {
   "notes": "These are the orders for Ed's lot.",
@@ -39,4 +40,5 @@ To place an Order for a Company with the ID `7b34ba14-1f7a-4492-9fd7-4bef02ad625
   ]
 }
 ```
-Note that you must specify the payer for ev
+
+Specify the payer for *every* vehicle.
