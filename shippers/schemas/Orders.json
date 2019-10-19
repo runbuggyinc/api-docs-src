@@ -304,6 +304,12 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/CancellationReason"
+            },
+            "x-examples": {
+              "application/json": {
+                "type": "OTHER",
+                "message": "Made a mistake placing order."
+              }
             }
           },
           {
