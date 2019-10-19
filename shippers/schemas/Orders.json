@@ -1293,9 +1293,9 @@
         "notes": {
           "type": "string"
         },
-        "orderId": {
+        "referenceNumber": {
           "type": "string",
-          "example": "ABC123-LMNOP"
+          "example": "200001"
         },
         "status": {
           "type": "string"
