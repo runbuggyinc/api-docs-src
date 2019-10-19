@@ -1283,12 +1283,12 @@
       "type": "object",
       "title": "OrderResponse",
       "properties": {
-        "created": {
-          "$ref": "#/definitions/Created"
-        },
         "id": {
           "type": "string",
           "example": "7e837a6c-1746-4da4-89e6-c87fae7df84d"
+        },
+        "created": {
+          "$ref": "#/definitions/Created"
         },
         "notes": {
           "type": "string"
