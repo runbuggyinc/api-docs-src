@@ -964,6 +964,18 @@
         }
       }
     },
+    "DetailedDirectionsPatchRequest": {
+      "type": "object",
+      "title": "DetailedDirectionsPatchRequest",
+      "properties": {
+        "dropoff": {
+          "$ref": "#/definitions/LocationPatch"
+        },
+        "pickup": {
+          "$ref": "#/definitions/LocationPatch"
+        }
+      }
+    },
     "DetailedDirectionsRequest": {
       "type": "object",
       "properties": {
@@ -1042,6 +1054,30 @@
           "type": "string"
         }
       }
+    },
+    "LocationPatch": {
+      "type": "object",
+      "properties": {
+        "contact": {
+          "$ref": "#/definitions/Contact"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "windows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Window"
+          }
+        }
+      },
+      "title": "LocationPatch"
     },
     "OrderQuoteRequest": {
       "type": "object",
@@ -1463,6 +1499,23 @@
       },
       "title": "Sort"
     },
+    "Quote": {
+      "type": "object",
+      "title": "Quote",
+      "properties": {
+        "distanceInMiles": {
+          "type": "number",
+          "format": "double"
+        },
+        "fare": {
+          "type": "number",
+          "format": "currency"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
     "State": {
       "type": "object",
       "properties": {
@@ -1731,6 +1784,9 @@
     "Window": {
       "type": "object",
       "properties": {
+        "confirmed": {
+          "type": "boolean"
+        },
         "end": {
           "type": "string",
           "format": "date-time"
@@ -1759,59 +1815,6 @@
         "reconciliationCode": {
           "type": "string",
           "example": "PARKING_LOT"
-        }
-      }
-    },
-    "DetailedDirectionsPatchRequest": {
-      "type": "object",
-      "title": "DetailedDirectionsPatchRequest",
-      "properties": {
-        "dropoff": {
-          "$ref": "#/definitions/LocationPatch"
-        },
-        "pickup": {
-          "$ref": "#/definitions/LocationPatch"
-        }
-      }
-    },
-    "LocationPatch": {
-      "type": "object",
-      "properties": {
-        "contact": {
-          "$ref": "#/definitions/Contact"
-        },
-        "name": {
-          "type": "string"
-        },
-        "notes": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "windows": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Window"
-          }
-        }
-      },
-      "title": "LocationPatch"
-    },
-    "Quote": {
-      "type": "object",
-      "title": "Quote",
-      "properties": {
-        "distanceInMiles": {
-          "type": "number",
-          "format": "double"
-        },
-        "fare": {
-          "type": "number",
-          "format": "currency"
-        },
-        "name": {
-          "type": "string"
         }
       }
     }
