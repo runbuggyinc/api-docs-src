@@ -867,15 +867,24 @@
   "definitions": {
     "CancellationReason": {
       "type": "object",
+      "title": "CancellationReason",
       "properties": {
-        "other": {
-          "type": "string"
+        "message": {
+          "type": "string",
+          "description": "Optional message.",
+          "example": "Made a mistake placing order."
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "description": "Enum string. Set to \"OTHER\" to provide a message.",
+          "enum": [
+            "OTHER"
+          ]
         }
       },
-      "title": "CancellationReason"
+      "required": [
+        "type"
+      ]
     },
     "Canceled": {
       "type": "object",
