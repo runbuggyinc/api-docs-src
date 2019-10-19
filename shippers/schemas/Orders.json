@@ -243,7 +243,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Retrieve an Order",
+        "summary": "Retrieve an order",
         "operationId": "getOrderUsingGET",
         "produces": [
           "application/json"
@@ -288,7 +288,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Cancel an Order",
+        "summary": "Cancel an order",
         "operationId": "cancelOrderUsingPOST",
         "consumes": [
           "application/json"
