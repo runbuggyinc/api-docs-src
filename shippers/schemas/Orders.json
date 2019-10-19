@@ -275,7 +275,7 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve specific order.",
+        "description": "Retrieve Order.",
         "security": [
           {
             "Authorization": []
@@ -1195,15 +1195,25 @@
       "type": "object",
       "title": "Order",
       "properties": {
+        "id": {
+          "type": "string",
+          "example": "151ff45d-9fcc-4df6-b221-cd7fcb1d7614"
+        },
+        "referenceNumber": {
+          "type": "string",
+          "example": "31232331"
+        },
+        "vehicleTransferOrders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VehicleTransferOrderIds"
+          }
+        },
         "canceled": {
           "$ref": "#/definitions/Canceled"
         },
         "created": {
           "$ref": "#/definitions/Created"
-        },
-        "id": {
-          "type": "string",
-          "example": "151ff45d-9fcc-4df6-b221-cd7fcb1d7614"
         },
         "labels": {
           "type": "array",
@@ -1215,10 +1225,6 @@
           "type": "string",
           "example": "Big May 1st delivery."
         },
-        "referenceNumber": {
-          "type": "string",
-          "example": "31232331"
-        },
         "status": {
           "type": "string"
         },
@@ -1228,12 +1234,6 @@
             "BASIC",
             "SWAP"
           ]
-        },
-        "vehicleTransferOrders": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/VehicleTransferOrderIds"
-          }
         }
       },
       "required": [
@@ -1484,21 +1484,6 @@
       },
       "title": "Payment"
     },
-    "Sort": {
-      "type": "object",
-      "properties": {
-        "empty": {
-          "type": "boolean"
-        },
-        "sorted": {
-          "type": "boolean"
-        },
-        "unsorted": {
-          "type": "boolean"
-        }
-      },
-      "title": "Sort"
-    },
     "Quote": {
       "type": "object",
       "title": "Quote",
@@ -1515,6 +1500,21 @@
           "type": "string"
         }
       }
+    },
+    "Sort": {
+      "type": "object",
+      "properties": {
+        "empty": {
+          "type": "boolean"
+        },
+        "sorted": {
+          "type": "boolean"
+        },
+        "unsorted": {
+          "type": "boolean"
+        }
+      },
+      "title": "Sort"
     },
     "State": {
       "type": "object",
