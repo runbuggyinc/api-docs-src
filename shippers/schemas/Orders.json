@@ -729,7 +729,7 @@
         "tags": [
           "Vehicle Transfer Orders"
         ],
-        "summary": "Get Vehicle Transfer Order photos",
+        "summary": "Retrieve vehicle photos",
         "operationId": "getVehiclePhotosUsingGET",
         "produces": [
           "application/json"
@@ -774,7 +774,7 @@
         "tags": [
           "Vehicle Transfer Orders"
         ],
-        "summary": "Retrieve vehicle transfer order photo",
+        "summary": "Get vehicle photo",
         "operationId": "getVehiclePhotoUsingGET",
         "produces": [
           "application/octet-stream",
