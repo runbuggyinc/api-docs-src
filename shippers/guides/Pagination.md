@@ -6,7 +6,6 @@ Paginated resources support query params:
 * pageSize
 * sort
 
-
 Paginated resources are returned in a common format:
 ```
 {

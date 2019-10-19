@@ -3,7 +3,7 @@
 
 ![Diagram](https://api-documentation-assets.s3-us-west-2.amazonaws.com/Shipper+API_+Basic+Process.png)
 
-### [Example JSON](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost) of placing an Order
+### [Example JSON](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost) of creating an Order
 ### [Send a Test](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost#send-a-test-request) request
 
 ---
