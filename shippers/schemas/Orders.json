@@ -385,7 +385,8 @@
             "description": "Not Found"
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "description": "List an Order's the Vehicle Transfer Orders."
       }
     },
     "/vehicle-transfer-orders": {
