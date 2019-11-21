@@ -1009,10 +1009,8 @@
       "type": "object",
       "title": "DetailedDirections",
       "properties": {
-        "distanceInMiles": {
-          "type": "integer",
-          "format": "int32",
-          "example": 143
+        "distance": {
+          "$ref": "#/definitions/Distance"
         },
         "dropoff": {
           "$ref": "#/definitions/Location"
@@ -1036,6 +1034,7 @@
     },
     "DetailedDirectionsRequest": {
       "type": "object",
+      "title": "DetailedDirectionsRequest",
       "properties": {
         "dropoff": {
           "$ref": "#/definitions/Location"
@@ -1044,7 +1043,28 @@
           "$ref": "#/definitions/Location"
         }
       },
-      "title": "DetailedDirectionsRequest"
+      "required": [
+        "dropoff",
+        "pickup"
+      ]
+    },
+    "Distance": {
+      "type": "object",
+      "properties": {
+        "distanceInMeters": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "distanceInMiles": {
+          "type": "number",
+          "format": "double"
+        },
+        "durationInSeconds": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "Distance"
     },
     "DriverInfo": {
       "type": "object",
@@ -1063,6 +1083,19 @@
           "example": "edjones@autogalaxyland.com"
         }
       }
+    },
+    "Event": {
+      "type": "object",
+      "properties": {
+        "dateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "Event"
     },
     "Fare": {
       "type": "object",
@@ -1221,9 +1254,11 @@
     },
     "Location": {
       "type": "object",
+      "title": "Location",
       "properties": {
         "address": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "contact": {
           "$ref": "#/definitions/Contact"
@@ -1247,7 +1282,9 @@
           }
         }
       },
-      "title": "Location"
+      "required": [
+        "address"
+      ]
     },
     "Order": {
       "type": "object",
@@ -1321,14 +1358,14 @@
           "description": "See Order.type enumeration for possible values."
         },
         "vehicleTransferOrders": {
-          "description": "Vehicles transfer orders.",
           "type": "array",
+          "description": "Vehicles transfer orders.",
+          "minItems": 1,
           "items": {
             "$ref": "#/definitions/VehicleTransferOrderRequest"
           }
         },
         "fare": {
-          "description": "Fare options.",
           "$ref": "#/definitions/FareOptionsRequest"
         }
       },
@@ -1668,7 +1705,10 @@
           "format": "int32",
           "example": 2015
         }
-      }
+      },
+      "required": [
+        "vin"
+      ]
     },
     "VehiclePhoto": {
       "type": "object",
@@ -1714,6 +1754,10 @@
       "type": "object",
       "title": "VehicleTransferOrder",
       "properties": {
+        "id": {
+          "type": "string",
+          "example": "7a765a49-6b21-4368-937e-8ce4981d8eff"
+        },
         "created": {
           "$ref": "#/definitions/Created"
         },
@@ -1728,10 +1772,6 @@
         },
         "geolocation": {
           "$ref": "#/definitions/Geolocation"
-        },
-        "id": {
-          "type": "string",
-          "example": "7a765a49-6b21-4368-937e-8ce4981d8eff"
         },
         "notes": {
           "type": "string",
@@ -1761,6 +1801,12 @@
         "status": {
           "type": "string",
           "example": "IN_TRANSIT"
+        },
+        "timeline": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Event"
+          }
         },
         "transporter": {
           "$ref": "#/definitions/Company"
@@ -1820,7 +1866,11 @@
         "vehicle": {
           "$ref": "#/definitions/Vehicle"
         }
-      }
+      },
+      "required": [
+        "directions",
+        "vehicle"
+      ]
     },
     "VehicleTransferOrderStatus": {
       "type": "object",
