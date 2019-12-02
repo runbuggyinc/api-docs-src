@@ -4,6 +4,7 @@ A response with 202 HTTP status code indicates that the request was accepted and
  will be present and contain the URI for the client to use to poll for the result of the operation.
 
 Here is a full example of handling 202's when creating an Order *([view full source](https://github.com/runbuggyinc/api-doc-src/blob/master/shippers/src/202-example.js))*
+
 ```javascript
 let order = null;
 
