@@ -6,7 +6,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "description": "### [Create Orders](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost) to Ship Vehicles.",
+    "description": "### [Create Orders](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost) to transfer vehicles.",
     "version": "1.0",
     "title": "Orders",
     "termsOfService": "https://runbuggy.com/terms/",
@@ -148,7 +148,7 @@
           }
         },
         "deprecated": false,
-        "description": "Create an Order to ship vehicles.",
+        "description": "Create an Order to transfer vehicles.",
         "security": [
           {
             "Authorization": []
