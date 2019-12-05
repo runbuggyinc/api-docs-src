@@ -39,4 +39,4 @@ The Vehicle Transfer Order has been picked up by a transportation company driver
 The Vehicle Transfer Order has been delivered its destination.
 
 ### Error
-The Vehicle Transfer Order is contains errors.
+The Vehicle Transfer Order contains errors.
