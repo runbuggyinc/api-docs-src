@@ -1818,7 +1818,7 @@
         },
         "status": {
           "type": "string",
-          "description": "See [https://runbuggy.docs.stoplight.io/guides/vto-statuses](the guide here) for detailed information.",
+          "description": "See the Vehicle Transfer Order Statuses guide for detailed information.",
           "enum": [
             "READY",
             "CLAIMED",
