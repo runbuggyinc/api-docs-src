@@ -949,7 +949,9 @@
         },
         "date": {
           "type": "string",
-          "format": "date-time"
+          "format": "ISO 8601 datetime",
+          "example": "2019-12-05T21:18:47+00:00",
+          "description": "Datetime in ISO 8601 format."
         },
         "reason": {
           "type": "string"
@@ -1007,7 +1009,9 @@
         },
         "date": {
           "type": "string",
-          "format": "date-time"
+          "format": "ISO 8601 datetime",
+          "example": "2019-12-05T21:18:47+00:00",
+          "description": "Datetime in ISO 8601 format."
         }
       }
     },
@@ -1095,7 +1099,9 @@
       "properties": {
         "dateTime": {
           "type": "string",
-          "format": "date-time"
+          "format": "ISO 8601 datetime",
+          "example": "2019-12-05T21:18:47+00:00",
+          "description": "Datetime in ISO 8601 format."
         },
         "name": {
           "type": "string"
@@ -1577,7 +1583,9 @@
       "properties": {
         "date": {
           "type": "string",
-          "format": "date-time"
+          "format": "ISO 8601 datetime",
+          "example": "2019-12-05T21:18:47+00:00",
+          "description": "Datetime in ISO 8601 format."
         },
         "sourceType": {
           "type": "string"
@@ -1622,7 +1630,9 @@
       "properties": {
         "time": {
           "type": "string",
-          "format": "date-time"
+          "format": "ISO 8601 datetime",
+          "example": "2019-12-05T21:18:47+00:00",
+          "description": "Datetime in ISO 8601 format."
         }
       },
       "title": "State"
@@ -1639,7 +1649,9 @@
         },
         "time": {
           "type": "string",
-          "format": "date-time"
+          "format": "ISO 8601 datetime",
+          "example": "2019-12-05T21:18:47+00:00",
+          "description": "Datetime in ISO 8601 format."
         }
       },
       "title": "StateLocation"
@@ -1901,17 +1913,21 @@
         "confirmed": {
           "type": "boolean"
         },
+        "start": {
+          "type": "string",
+          "format": "ISO 8601 datetime",
+          "example": "2019-12-05T21:18:47+00:00",
+          "description": "Datetime in ISO 8601 format."
+        },
         "end": {
           "type": "string",
-          "format": "date-time"
+          "format": "ISO 8601 datetime",
+          "example": "2019-12-05T21:18:47+00:00",
+          "description": "Datetime in ISO 8601 format."
         },
         "priority": {
           "type": "integer",
           "format": "int32"
-        },
-        "start": {
-          "type": "string",
-          "format": "date-time"
         }
       },
       "title": "Window"
