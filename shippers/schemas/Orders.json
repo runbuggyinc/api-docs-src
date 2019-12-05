@@ -1818,7 +1818,18 @@
         },
         "status": {
           "type": "string",
-          "example": "IN_TRANSIT"
+          "description": "See [https://runbuggy.docs.stoplight.io/guides/vto-statuses](the guide here) for detailed information.",
+          "enum": [
+            "READY",
+            "CLAIMED",
+            "UNCLAIMED",
+            "ASSIGNED",
+            "REJECTED",
+            "ACCEPTED",
+            "SIGNATURE_ON_PICKUP",
+            "DELIVERED",
+            "ERROR"
+          ]
         },
         "timeline": {
           "type": "array",
