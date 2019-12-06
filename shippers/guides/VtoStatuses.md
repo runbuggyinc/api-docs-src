@@ -35,7 +35,7 @@ The Vehicle Transfer Order has been accepted by a transportation company driver.
 ### Signature on Pickup
 The Vehicle Transfer Order has been picked up by a transportation company driver.
 
-### Signature on Pickup
+### Delivered
 The Vehicle Transfer Order has been delivered its destination.
 
 ### Error
