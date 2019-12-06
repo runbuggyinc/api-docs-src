@@ -36,7 +36,7 @@ The Vehicle Transfer Order has been accepted by a transportation company driver.
 The Vehicle Transfer Order has been picked up by a transportation company driver.
 
 ### Delivered
-The Vehicle Transfer Order has been delivered its destination.
+The Vehicle Transfer Order has been delivered to its destination.
 
 ### Error
 The Vehicle Transfer Order contains errors.
