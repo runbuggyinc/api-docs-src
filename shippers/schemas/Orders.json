@@ -401,6 +401,13 @@
         ],
         "parameters": [
           {
+            "in": "query",
+            "name": "status",
+            "type": "string",
+            "required": false,
+            "description": "VehicleTransferOrder.status - See Guide for details on the possible values"
+          },
+          {
             "name": "offset",
             "in": "query",
             "required": false,
