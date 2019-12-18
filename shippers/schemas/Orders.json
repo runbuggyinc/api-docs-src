@@ -1827,7 +1827,8 @@
           "type": "string",
           "description": "See the Vehicle Transfer Order Statuses guide for detailed information.",
           "enum": [
-            "READY",
+            "DRAFT",
+            "AVAILABLE",
             "CLAIMED",
             "UNCLAIMED",
             "ASSIGNED",
@@ -1835,6 +1836,7 @@
             "ACCEPTED",
             "SIGNATURE_ON_PICKUP",
             "DELIVERED",
+            "CANCELED",
             "ERROR"
           ]
         },

@@ -2,7 +2,8 @@
 
 The `VehicleTransferOrder.status` field has the following possible values:
 ```
-READY
+DRAFT
+AVAILABLE
 CLAIMED
 UNCLAIMED
 ASSIGNED
@@ -10,12 +11,15 @@ REJECTED
 ACCEPTED
 SIGNATURE_ON_PICKUP
 DELIVERED
+CANCELED
 ERROR
 ```
 
+### Draft
+The Vehicle Transfer Order has been successfully received by the system and is being processed.
 
-### Ready
-The Vehicle Transfer Order has been successfully entered in the system and is ready to be accepted by a transporter.
+### Available
+The Vehicle Transfer Order has been successfully entered in the system and is available to be accepted by a transporter.
 
 ### Claimed
 The Vehicle Transfer Order has been claimed by a transportation company to be transferred.
