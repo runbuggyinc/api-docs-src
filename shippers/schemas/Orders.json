@@ -1828,6 +1828,7 @@
           "description": "See the Vehicle Transfer Order Statuses guide for detailed information.",
           "enum": [
             "DRAFT",
+            "READY",
             "AVAILABLE",
             "CLAIMED",
             "UNCLAIMED",
