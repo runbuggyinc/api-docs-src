@@ -1816,8 +1816,15 @@
           "type": "string",
           "example": "7a765a49-6b21-4368-937e-8ce4981d8eff"
         },
+        "referenceNumber": {
+          "type": "string",
+          "example": "2000232-123432"
+        },
         "created": {
           "$ref": "#/definitions/Created"
+        },
+        "vehicle": {
+          "$ref": "#/definitions/Vehicle"
         },
         "directions": {
           "$ref": "#/definitions/DetailedDirections"
@@ -1849,10 +1856,6 @@
           "type": "string",
           "example": "RBCON2019"
         },
-        "referenceNumber": {
-          "type": "string",
-          "example": "2000232-123432"
-        },
         "states": {
           "$ref": "#/definitions/States"
         },
@@ -1882,9 +1885,6 @@
         },
         "transporter": {
           "$ref": "#/definitions/Company"
-        },
-        "vehicle": {
-          "$ref": "#/definitions/Vehicle"
         },
         "canceled": {
           "$ref": "#/definitions/Canceled"
