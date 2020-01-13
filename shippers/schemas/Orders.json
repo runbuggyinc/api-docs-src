@@ -1101,6 +1101,30 @@
         }
       }
     },
+    "error": {
+      "type": "object",
+      "title": "Error",
+      "description": "A common Error object.",
+      "properties": {
+        "code": {
+          "type": "string",
+          "example": "INVALID_VEHICLE_TRANSFER_ORDER",
+          "description": "The error code."
+        },
+        "message": {
+          "type": "string",
+          "example": "A vehicle requested has an invalid VIN.",
+          "description": "The error message."
+        },
+        "field": {
+          "type": "string",
+          "example": "vin"
+        }
+      },
+      "required": [
+        "code"
+      ]
+    },
     "Event": {
       "type": "object",
       "properties": {
@@ -1348,15 +1372,24 @@
             "BASIC",
             "SWAP"
           ]
+        },
+        "errors": {
+          "type": [
+            "string",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/error"
+          }
         }
       },
       "required": [
-        "created",
         "id",
         "referenceNumber",
+        "vehicleTransferOrders",
+        "created",
         "status",
-        "type",
-        "vehicleTransferOrders"
+        "type"
       ]
     },
     "OrderRequest": {
@@ -1852,22 +1885,38 @@
         },
         "vehicle": {
           "$ref": "#/definitions/Vehicle"
+        },
+        "canceled": {
+          "$ref": "#/definitions/Canceled"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/error"
+          }
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
         }
       },
       "required": [
+        "id",
         "created",
         "directions",
         "driverInfo",
         "fare",
         "geolocation",
-        "id",
         "orderId",
+        "referenceNumber",
         "states",
         "status",
         "transporter",
-        "vehicle",
-        "referenceNumber"
-      ]
+        "vehicle"
+      ],
+      "description": "A Vehicle Transfer Order."
     },
     "VehicleTransferOrderIds": {
       "type": "object",
