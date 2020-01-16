@@ -60,7 +60,7 @@
                 "type": "BASIC",
                 "vehicleTransferOrders": [
                   {
-                    "direction": {
+                    "directions": {
                       "pickup": {
                         "address": "4884 E Butler Ave, Fresno, CA 93727",
                         "contact": {
@@ -81,7 +81,7 @@
                     }
                   },
                   {
-                    "direction": {
+                    "directions": {
                       "pickup": {
                         "address": "4884 E Butler Ave, Fresno, CA 93727",
                         "contact": {
@@ -102,7 +102,7 @@
                     }
                   },
                   {
-                    "direction": {
+                    "directions": {
                       "pickup": {
                         "address": "4884 E Butler Ave, Fresno, CA 93727",
                         "contact": {
@@ -1065,6 +1065,22 @@
         "pickup"
       ]
     },
+    "DetailedDirectionsQuoteRequest": {
+      "type": "object",
+      "title": "DetailedDirectionsQuoteRequest",
+      "properties": {
+        "dropoff": {
+          "$ref": "#/definitions/LocationQuoteRequest"
+        },
+        "pickup": {
+          "$ref": "#/definitions/LocationQuoteRequest"
+        }
+      },
+      "required": [
+        "dropoff",
+        "pickup"
+      ]
+    },
     "Distance": {
       "type": "object",
       "properties": {
@@ -1295,6 +1311,26 @@
         }
       }
     },
+    "GeolocationQuoteRequest": {
+      "type": "object",
+      "title": "GeolocationQuoteRequest",
+      "properties": {
+        "lat": {
+          "type": "number",
+          "format": "double",
+          "example": 36.22456039384188
+        },
+        "lng": {
+          "type": "number",
+          "format": "double",
+          "example": -115.64054689374996
+        }
+      },
+      "required": [
+        "lat",
+        "lng"
+      ]
+    },
     "Location": {
       "type": "object",
       "title": "Location",
@@ -1327,6 +1363,41 @@
       },
       "required": [
         "address"
+      ]
+    },
+    "LocationQuoteRequest": {
+      "type": "object",
+      "title": "LocationQuoteRequest",
+      "properties": {
+        "address": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contact": {
+          "$ref": "#/definitions/Contact"
+        },
+        "geolocation": {
+          "$ref": "#/definitions/GeolocationQuoteRequest"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "windows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Window"
+          }
+        }
+      },
+      "required": [
+        "address",
+        "geolocation"
       ]
     },
     "Order": {
@@ -1933,6 +2004,35 @@
     "VehicleTransferOrderRequest": {
       "type": "object",
       "title": "VehicleTransferOrderRequest",
+      "properties": {
+        "directions": {
+          "$ref": "#/definitions/DetailedDirectionsQuoteRequest"
+        },
+        "fare": {
+          "$ref": "#/definitions/FareOptionsRequest"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "payer": {
+          "$ref": "#/definitions/Company"
+        },
+        "reconciliationCode": {
+          "type": "string",
+          "example": "PARKING_LOT"
+        },
+        "vehicle": {
+          "$ref": "#/definitions/Vehicle"
+        }
+      },
+      "required": [
+        "directions",
+        "vehicle"
+      ]
+    },
+    "VehicleTransferOrderQuoteRequest": {
+      "type": "object",
+      "title": "VehicleTransferOrderQuoteRequest",
       "properties": {
         "directions": {
           "$ref": "#/definitions/DetailedDirectionsRequest"
