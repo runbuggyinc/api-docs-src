@@ -22,7 +22,7 @@ Request to Create Order for Company with the ID `7b34ba14-1f7a-4492-9fd7-4bef02a
   "type": "BASIC",
   "vehicleTransferOrders": [
     {
-      "direction": {
+      "directions": {
         "pickup": {
           "address": "4884 E Butler Ave, Fresno, CA 93727"
         },
