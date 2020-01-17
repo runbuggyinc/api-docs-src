@@ -2006,7 +2006,7 @@
       "title": "VehicleTransferOrderRequest",
       "properties": {
         "directions": {
-          "$ref": "#/definitions/DetailedDirectionsQuoteRequest"
+          "$ref": "#/definitions/DetailedDirectionsRequest"
         },
         "fare": {
           "$ref": "#/definitions/FareOptionsRequest"
