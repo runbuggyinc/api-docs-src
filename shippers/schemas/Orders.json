@@ -1183,6 +1183,22 @@
         }
       }
     },
+    "FareItem": {
+      "type": "object",
+      "title": "FareItem",
+      "description": "Order Fare Item",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "value": {
+          "type": "number"
+        }
+      }
+    },
     "FareOptionsRequest": {
       "type": "object",
       "title": "FareOptionsRequest",
@@ -1450,6 +1466,12 @@
           ],
           "items": {
             "$ref": "#/definitions/error"
+          }
+        },
+        "fare": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FareItem"
           }
         }
       },
