@@ -1,9 +1,9 @@
 # Pagination
 
 Paginated resources support query params:
-* offset
-* pageNumber
-* pageSize
+* limit
+* page
+* size
 * sort
 
 Paginated resources are returned in a common format:
