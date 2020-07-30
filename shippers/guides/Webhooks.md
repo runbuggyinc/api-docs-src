@@ -22,5 +22,5 @@ Webhooks enable our system to notify your system when events occur.
 }
 ```
 
-The event's `object` property will contain the full object. For example, Vehicle Transfer Order events will have
- `object` contain the object [described here](https://runbuggy.docs.stoplight.io/reference/orders/vehicle-transfer-orders/getvehicletransferorderusingget). 
+The event's `object` property will contain the full object. For example, `vehicleTransferOrder.updated` events'
+ `object` will contain the object [described here](https://runbuggy.docs.stoplight.io/reference/orders/vehicle-transfer-orders/getvehicletransferorderusingget). 
