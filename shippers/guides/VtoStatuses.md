@@ -22,7 +22,8 @@ The Vehicle Transfer Order has been successfully received by the system and is b
 The Vehicle Transfer Order has been successfully processed and will be made available to be claimed shortly.
 
 ### Available
-The Vehicle Transfer Order has been successfully entered in the system and is available to be accepted by a transporter.
+The Vehicle Transfer Order has been successfully entered into the system and is available to be accepted by a
+ transporter.
 
 ### Claimed
 The Vehicle Transfer Order has been claimed by a transportation company to be transferred.
