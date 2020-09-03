@@ -1550,7 +1550,7 @@
         "vehicleTransferOrders": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VehicleTransferOrderRequest"
+            "$ref": "#/definitions/VehicleTransferOrderQuoteRequest"
           }
         },
         "fare": {
@@ -2407,7 +2407,7 @@
       "title": "VehicleTransferOrderQuoteRequest",
       "properties": {
         "directions": {
-          "$ref": "#/definitions/DetailedDirectionsRequest"
+          "$ref": "#/definitions/DetailedDirectionsQuoteRequest"
         },
         "fare": {
           "$ref": "#/definitions/FareOptionsRequest"
