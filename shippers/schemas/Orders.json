@@ -20,7 +20,7 @@
     }
   },
   "host": "apps.runbuggy.com",
-  "basePath": "/testing-v2/api",
+  "basePath": "/staging-v2/api",
   "tags": [
     {
       "name": "Orders",
