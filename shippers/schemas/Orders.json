@@ -170,49 +170,25 @@
         ],
         "parameters": [
           {
-            "name": "offset",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int64"
-          },
-          {
-            "name": "pageNumber",
+            "name": "limit",
             "in": "query",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "pageSize",
+            "name": "page",
             "in": "query",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "paged",
+            "name": "size",
             "in": "query",
             "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "sort.sorted",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "sort.unsorted",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "unpaged",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "responses": {
@@ -544,56 +520,32 @@
         ],
         "parameters": [
           {
-            "name": "offset",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int64"
-          },
-          {
-            "name": "pageNumber",
+            "name": "limit",
             "in": "query",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "pageSize",
+            "name": "page",
             "in": "query",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "paged",
+            "name": "size",
             "in": "query",
             "required": false,
-            "type": "boolean"
+            "type": "integer",
+            "format": "int32"
           },
           {
             "name": "query",
             "in": "query",
-            "description": "query",
+            "description": "Query Orders using RSQL. See https://molgenis.gitbooks.io/molgenis/content/guide-rsql.html",
             "required": false,
             "type": "string"
-          },
-          {
-            "name": "sort.sorted",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "sort.unsorted",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "unpaged",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
           }
         ],
         "responses": {
@@ -628,56 +580,25 @@
         ],
         "parameters": [
           {
-            "in": "query",
-            "name": "status",
-            "type": "string",
-            "required": false,
-            "description": "VehicleTransferOrder.status - See Guide for details on the possible values"
-          },
-          {
-            "name": "offset",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int64"
-          },
-          {
-            "name": "pageNumber",
+            "name": "limit",
             "in": "query",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "pageSize",
+            "name": "page",
             "in": "query",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "paged",
+            "name": "size",
             "in": "query",
             "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "sort.sorted",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "sort.unsorted",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "unpaged",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "responses": {
@@ -1155,49 +1076,25 @@
         ],
         "parameters": [
           {
-            "name": "offset",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int64"
-          },
-          {
-            "name": "pageNumber",
+            "name": "limit",
             "in": "query",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "pageSize",
+            "name": "page",
             "in": "query",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "paged",
+            "name": "size",
             "in": "query",
             "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "sort.sorted",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "sort.unsorted",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "unpaged",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "responses": {
