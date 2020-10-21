@@ -690,7 +690,7 @@
             "description": "VehicleTransferOrder",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/VehicleTransferOrderPatchRequest"
+              "$ref": "#/definitions/VehicleTransferOrderPatch"
             }
           },
           {
@@ -1777,15 +1777,6 @@
         },
         "notes": {
           "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "windows": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Window"
-          }
         }
       },
       "title": "LocationPatch"
@@ -3138,21 +3129,59 @@
       },
       "title": "Window"
     },
-    "VehicleTransferOrderPatchRequest": {
+    "VehicleTransferOrderPatch": {
       "type": "object",
-      "title": "VehicleTransferOrderPatchRequest",
       "properties": {
         "directions": {
-          "$ref": "#/definitions/DetailedDirectionsPatchRequest"
+          "$ref": "#/definitions/DirectionsPatch"
+        },
+        "gatePasses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TempFile"
+          }
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
         },
         "notes": {
           "type": "string"
         },
-        "reconciliationCode": {
-          "type": "string",
-          "example": "PARKING_LOT"
+        "vehicle": {
+          "$ref": "#/definitions/VehiclePatch"
         }
-      }
+      },
+      "title": "VehicleTransferOrderPatch"
+    },
+    "VehiclePatch": {
+      "type": "object",
+      "properties": {
+        "color": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "stockNumber": {
+          "type": "string"
+        }
+      },
+      "title": "VehiclePatch"
+    },
+    "DirectionsPatch": {
+      "type": "object",
+      "properties": {
+        "dropoff": {
+          "$ref": "#/definitions/LocationPatch"
+        },
+        "pickup": {
+          "$ref": "#/definitions/LocationPatch"
+        }
+      },
+      "title": "DirectionsPatch"
     }
   },
   "schemes": [
