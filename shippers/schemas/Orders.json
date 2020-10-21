@@ -771,7 +771,7 @@
         "tags": [
           "Vehicle Transfer Orders"
         ],
-        "summary": "Get gate passes",
+        "summary": "getGatePasses",
         "operationId": "getGatePassesUsingGET",
         "produces": [
           "application/json"
@@ -791,7 +791,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/GatePass"
+                "$ref": "#/definitions/Attachment"
               }
             }
           },
@@ -805,13 +805,54 @@
             "description": "Not Found"
           }
         },
-        "deprecated": false,
-        "description": "Retrieve paginated Gate Passes.",
-        "security": [
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Vehicle Transfer Orders"
+        ],
+        "summary": "addGatePass",
+        "operationId": "addGatePassUsingPOST",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
           {
-            "Authorization": []
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
       }
     },
     "/vehicle-transfer-orders/gate-passes": {
@@ -864,10 +905,9 @@
         "tags": [
           "Vehicle Transfer Orders"
         ],
-        "summary": "Retrieve gate pass",
+        "summary": "getGatePass",
         "operationId": "getGatePassUsingGET",
         "produces": [
-          "application/octet-stream",
           "application/json"
         ],
         "parameters": [
@@ -888,7 +928,7 @@
         ],
         "responses": {
           "200": {
-            "description": "File"
+            "description": "OK"
           },
           "401": {
             "description": "Unauthorized"
@@ -900,13 +940,7 @@
             "description": "Not Found"
           }
         },
-        "deprecated": false,
-        "description": "Retrieve specified Gate Pass file.",
-        "security": [
-          {
-            "Authorization": []
-          }
-        ]
+        "deprecated": false
       }
     },
     "/vehicle-transfer-orders/{id}/photos": {
@@ -1412,6 +1446,27 @@
       },
       "title": "Activity"
     },
+    "Attachment": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "$ref": "#/definitions/Created"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "resourcePath": {
+          "type": "string"
+        }
+      },
+      "title": "Attachment"
+    },
     "BasicDirectionsRequest": {
       "type": "object",
       "properties": {
@@ -1618,18 +1673,6 @@
         },
         "pickup": {
           "$ref": "#/definitions/Location"
-        }
-      }
-    },
-    "DetailedDirectionsPatchRequest": {
-      "type": "object",
-      "title": "DetailedDirectionsPatchRequest",
-      "properties": {
-        "dropoff": {
-          "$ref": "#/definitions/LocationPatch"
-        },
-        "pickup": {
-          "$ref": "#/definitions/LocationPatch"
         }
       }
     },
@@ -1912,27 +1955,6 @@
         }
       }
     },
-    "GatePass": {
-      "type": "object",
-      "title": "GatePass",
-      "required": [
-        "id"
-      ],
-      "properties": {
-        "created": {
-          "$ref": "#/definitions/Created"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      }
-    },
     "Geolocation": {
       "type": "object",
       "properties": {
@@ -1948,26 +1970,6 @@
         }
       },
       "title": "Geolocation"
-    },
-    "GeolocationQuoteRequest": {
-      "type": "object",
-      "title": "GeolocationQuoteRequest",
-      "properties": {
-        "lat": {
-          "type": "number",
-          "format": "double",
-          "example": 36.22456039384188
-        },
-        "lng": {
-          "type": "number",
-          "format": "double",
-          "example": -115.64054689374996
-        }
-      },
-      "required": [
-        "lat",
-        "lng"
-      ]
     },
     "InspectionSummary": {
       "type": "object",
@@ -2053,41 +2055,6 @@
       },
       "required": [
         "address"
-      ]
-    },
-    "LocationQuoteRequest": {
-      "type": "object",
-      "title": "LocationQuoteRequest",
-      "properties": {
-        "address": {
-          "type": "string",
-          "minLength": 1
-        },
-        "contact": {
-          "$ref": "#/definitions/Contact"
-        },
-        "geolocation": {
-          "$ref": "#/definitions/GeolocationQuoteRequest"
-        },
-        "name": {
-          "type": "string"
-        },
-        "notes": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "windows": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Window"
-          }
-        }
-      },
-      "required": [
-        "address",
-        "geolocation"
       ]
     },
     "Order": {
