@@ -438,6 +438,57 @@
         "deprecated": false
       }
     },
+    "/orders/{id}/replace": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "replaceOrder",
+        "operationId": "replaceOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "replaceRequest",
+            "description": "replaceRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OrderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
     "/orders/{id}/vehicle-transfer-orders": {
       "get": {
         "tags": [
@@ -1632,6 +1683,22 @@
           "format": "double",
           "example": 450.98
         },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "pickupSchedule": {
+          "$ref": "#/definitions/Window"
+        },
+        "dropOffSchedule": {
+          "$ref": "#/definitions/Window"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Item"
+          }
+        },
         "name": {
           "type": "string"
         },
@@ -1649,6 +1716,19 @@
           "type": "string"
         }
       }
+    },
+    "Item": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "Item"
     },
     "FareItem": {
       "type": "object",
@@ -1819,6 +1899,24 @@
         "lat",
         "lng"
       ]
+    },
+    "InspectionSummary": {
+      "type": "object",
+      "properties": {
+        "completed": {
+          "$ref": "#/definitions/Created"
+        },
+        "created": {
+          "$ref": "#/definitions/Created"
+        },
+        "id": {
+          "type": "string"
+        },
+        "taskName": {
+          "type": "string"
+        }
+      },
+      "title": "InspectionSummary"
     },
     "LastDriverLocation": {
       "type": "object",
@@ -2424,21 +2522,6 @@
         }
       }
     },
-    "Payment": {
-      "type": "object",
-      "properties": {
-        "date": {
-          "type": "string",
-          "format": "ISO 8601 datetime",
-          "example": "2019-12-05T21:18:47+00:00",
-          "description": "Datetime in ISO 8601 format."
-        },
-        "sourceType": {
-          "type": "string"
-        }
-      },
-      "title": "Payment"
-    },
     "Quote": {
       "type": "object",
       "title": "Quote",
@@ -2758,9 +2841,6 @@
         "payer": {
           "$ref": "#/definitions/Company"
         },
-        "payment": {
-          "$ref": "#/definitions/Payment"
-        },
         "reconciliationCode": {
           "type": "string",
           "example": "RBCON2019"
@@ -2795,6 +2875,9 @@
         "transporter": {
           "$ref": "#/definitions/Company"
         },
+        "dedicatedTransporter": {
+          "$ref": "#/definitions/Company"
+        },
         "canceled": {
           "$ref": "#/definitions/Canceled"
         },
@@ -2808,6 +2891,21 @@
           "type": "array",
           "items": {
             "type": "object"
+          }
+        },
+        "canCancel": {
+          "type": "boolean"
+        },
+        "inspections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InspectionSummary"
+          }
+        },
+        "preferredTransporters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Company"
           }
         }
       },
