@@ -1280,6 +1280,9 @@
           "description": "User ID",
           "example": "7ae99113-09fd-4838-917a-a7d9636c2f8c"
         },
+        "byUserFullName": {
+          "type": "string"
+        },
         "date": {
           "type": "string",
           "format": "ISO 8601 datetime",
@@ -1391,7 +1394,11 @@
         "code": {
           "type": "string",
           "example": "INVALID_VEHICLE_TRANSFER_ORDER",
-          "description": "The error code."
+          "enum": [
+            "INVALID_VEHICLE_TRANSFER_ORDER",
+            "INVALID_ADDRESS",
+            "INVALID_VEHICLE"
+          ]
         },
         "message": {
           "type": "string",
@@ -1461,7 +1468,8 @@
           "type": "string"
         },
         "value": {
-          "type": "number"
+          "type": "number",
+          "format": "double"
         }
       }
     },
@@ -1740,6 +1748,10 @@
             "SWAP"
           ]
         },
+        "completedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
         "errors": {
           "type": [
             "array"
@@ -1753,6 +1765,21 @@
           "items": {
             "$ref": "#/definitions/FareItem"
           }
+        },
+        "dedicatedTransporter": {
+          "$ref": "#/definitions/Company"
+        },
+        "preferredStatusExpiration": {
+          "type": "string"
+        },
+        "preferredTransporters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Company"
+          }
+        },
+        "replacement": {
+          "$ref": "#/definitions/Replacement"
         }
       },
       "required": [
@@ -1763,6 +1790,29 @@
         "status",
         "type"
       ]
+    },
+    "Replacement": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "$ref": "#/definitions/Created"
+        },
+        "message": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "PENDING",
+            "SUCCESS",
+            "ERROR"
+          ]
+        }
+      },
+      "title": "Replacement"
     },
     "OrderRequest": {
       "type": "object",
