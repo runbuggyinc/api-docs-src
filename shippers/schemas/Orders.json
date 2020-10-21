@@ -627,6 +627,45 @@
         ]
       }
     },
+    "/vehicle-transfer-orders/{id}/expanded": {
+      "get": {
+        "tags": [
+          "Vehicle Transfer Orders"
+        ],
+        "summary": "getExpanded",
+        "operationId": "getExpandedUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VehicleTransferOrderExpanded"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
     "/vehicle-transfer-orders/{id}": {
       "get": {
         "tags": [
@@ -773,6 +812,51 @@
             "Authorization": []
           }
         ]
+      }
+    },
+    "/vehicle-transfer-orders/gate-passes": {
+      "post": {
+        "tags": [
+          "Vehicle Transfer Orders"
+        ],
+        "summary": "createGatePass",
+        "operationId": "createGatePassUsingPOST",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TempFile"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
       }
     },
     "/vehicle-transfer-orders/{id}/gate-passes/{passId}": {
@@ -2844,6 +2928,133 @@
         }
       },
       "title": "VehiclePhotos"
+    },
+    "VehicleTransferOrderExpanded": {
+      "type": "object",
+      "title": "VehicleTransferOrder",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "7a765a49-6b21-4368-937e-8ce4981d8eff"
+        },
+        "referenceNumber": {
+          "type": "string",
+          "example": "2000232-123432"
+        },
+        "created": {
+          "$ref": "#/definitions/Created"
+        },
+        "vehicle": {
+          "$ref": "#/definitions/Vehicle"
+        },
+        "directions": {
+          "$ref": "#/definitions/DetailedDirections"
+        },
+        "driverInfo": {
+          "$ref": "#/definitions/DriverInfo"
+        },
+        "fare": {
+          "$ref": "#/definitions/Fare"
+        },
+        "geolocation": {
+          "$ref": "#/definitions/Geolocation"
+        },
+        "notes": {
+          "type": "string",
+          "example": "Notes about this vehicle transfer."
+        },
+        "order": {
+          "$ref": "#/definitions/Order"
+        },
+        "payer": {
+          "$ref": "#/definitions/Company"
+        },
+        "reconciliationCode": {
+          "type": "string",
+          "example": "RBCON2019"
+        },
+        "states": {
+          "$ref": "#/definitions/States"
+        },
+        "status": {
+          "type": "string",
+          "description": "See the Vehicle Transfer Order Statuses guide for detailed information.",
+          "enum": [
+            "DRAFT",
+            "READY",
+            "AVAILABLE",
+            "CLAIMED",
+            "UNCLAIMED",
+            "ASSIGNED",
+            "REJECTED",
+            "ACCEPTED",
+            "DRIVER_ARRIVED",
+            "PICKED_UP",
+            "SIGNATURE_ON_PICKUP",
+            "UNLOADED",
+            "DELIVERED",
+            "CANCELED",
+            "ERROR"
+          ]
+        },
+        "timeline": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Event"
+          }
+        },
+        "transporter": {
+          "$ref": "#/definitions/Company"
+        },
+        "dedicatedTransporter": {
+          "$ref": "#/definitions/Company"
+        },
+        "canceled": {
+          "$ref": "#/definitions/Canceled"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Error"
+          }
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "canCancel": {
+          "type": "boolean"
+        },
+        "inspections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InspectionSummary"
+          }
+        },
+        "preferredTransporters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Company"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "created",
+        "directions",
+        "driverInfo",
+        "fare",
+        "geolocation",
+        "orderId",
+        "referenceNumber",
+        "states",
+        "status",
+        "transporter",
+        "vehicle"
+      ],
+      "description": "A Vehicle Transfer Order."
     },
     "VehicleTransferOrder": {
       "type": "object",
