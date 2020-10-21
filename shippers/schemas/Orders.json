@@ -2914,7 +2914,10 @@
             "ASSIGNED",
             "REJECTED",
             "ACCEPTED",
+            "DRIVER_ARRIVED",
+            "PICKED_UP",
             "SIGNATURE_ON_PICKUP",
+            "UNLOADED",
             "DELIVERED",
             "CANCELED",
             "ERROR"
