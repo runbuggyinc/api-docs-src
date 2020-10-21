@@ -266,7 +266,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "patchOrder",
+        "summary": "Update order",
         "operationId": "patchOrderUsingPATCH",
         "consumes": [
           "application/json"
@@ -309,7 +309,8 @@
             "description": "Forbidden"
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "description": "Patch Order"
       }
     },
     "/orders/{id}/cancel": {
@@ -375,51 +376,12 @@
         ]
       }
     },
-    "/orders/{id}/full": {
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "summary": "getFullOrderWithId",
-        "operationId": "getFullOrderWithIdUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "id",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/OrderFull"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false
-      }
-    },
     "/orders/{id}/replace": {
       "post": {
         "tags": [
           "Orders"
         ],
-        "summary": "replaceOrder",
+        "summary": "Replace order",
         "operationId": "replaceOrderUsingPOST",
         "consumes": [
           "application/json"
@@ -463,6 +425,46 @@
           }
         },
         "deprecated": false
+      }
+    },
+    "/orders/{id}/full": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Retrieve an expanded Order",
+        "operationId": "getFullOrderWithIdUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OrderFull"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Retrieve an Order expanded with additional information."
       }
     },
     "/orders/{id}/vehicle-transfer-orders": {
