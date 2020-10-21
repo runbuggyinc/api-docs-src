@@ -583,60 +583,6 @@
         ]
       }
     },
-    "/vehicle-transfer-orders/{id}/cancel": {
-      "post": {
-        "tags": [
-          "Vehicle Transfer Orders"
-        ],
-        "summary": "Cancel a vehicle transfer order",
-        "operationId": "cancelVehicleTransferOrderUsingPOST",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "*/*"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "cancellationReason",
-            "description": "cancellationReason",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/CancellationReason"
-            }
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "description": "id",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "202": {
-            "description": "ACCCEPTED"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false,
-        "description": "Cancel specified Vehicle Transfer Order.",
-        "security": [
-          {
-            "Authorization": []
-          }
-        ]
-      }
-    },
     "/vehicle-transfer-orders/{id}/gate-passes": {
       "get": {
         "tags": [
