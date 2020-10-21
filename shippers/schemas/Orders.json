@@ -1163,6 +1163,36 @@
     }
   },
   "definitions": {
+    "AddressComponents": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "street": {
+          "type": "string"
+        },
+        "streetNumber": {
+          "type": "string"
+        },
+        "suite": {
+          "type": "string"
+        }
+      },
+      "title": "AddressComponents"
+    },
     "CancellationReason": {
       "type": "object",
       "title": "CancellationReason",
@@ -1437,8 +1467,13 @@
     },
     "FareOptionsRequest": {
       "type": "object",
-      "title": "FareOptionsRequest",
       "properties": {
+        "pickupSchedule": {
+          "$ref": "#/definitions/Window"
+        },
+        "dropOffSchedule": {
+          "$ref": "#/definitions/Window"
+        },
         "name": {
           "type": "string"
         },
@@ -1449,13 +1484,13 @@
           }
         },
         "promotionCode": {
-          "type": "string",
-          "example": "RBCON19"
+          "type": "string"
         },
         "urgency": {
           "type": "string"
         }
-      }
+      },
+      "title": "FareOptionsRequest"
     },
     "LocationPatch": {
       "type": "object",
@@ -1549,19 +1584,19 @@
     },
     "Geolocation": {
       "type": "object",
-      "title": "Geolocation",
       "properties": {
-        "lat": {
-          "type": "number",
-          "format": "double",
-          "example": 36.22456039384188
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
         },
-        "lng": {
-          "type": "number",
-          "format": "double",
-          "example": -115.64054689374996
+        "type": {
+          "type": "string"
         }
-      }
+      },
+      "title": "Geolocation"
     },
     "GeolocationQuoteRequest": {
       "type": "object",
@@ -1591,8 +1626,17 @@
           "type": "string",
           "minLength": 1
         },
+        "addressComponents": {
+          "$ref": "#/definitions/AddressComponents"
+        },
+        "auctionCode": {
+          "type": "string"
+        },
         "contact": {
           "$ref": "#/definitions/Contact"
+        },
+        "dealerCode": {
+          "type": "string"
         },
         "geolocation": {
           "$ref": "#/definitions/Geolocation"
@@ -1731,8 +1775,7 @@
         "type": {
           "type": "string",
           "enum": [
-            "BASIC",
-            "SWAP"
+            "BASIC"
           ],
           "example": "BASIC",
           "description": "See Order.type enumeration for possible values."
@@ -1747,6 +1790,12 @@
         },
         "fare": {
           "$ref": "#/definitions/FareOptionsRequest"
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
         }
       },
       "required": [
@@ -2102,6 +2151,24 @@
       },
       "title": "States"
     },
+    "TempFile": {
+      "type": "object",
+      "properties": {
+        "resourcePath": {
+          "type": "string"
+        }
+      },
+      "title": "TempFile"
+    },
+    "TruckSpecifications": {
+      "type": "object",
+      "properties": {
+        "rearAxle": {
+          "type": "string"
+        }
+      },
+      "title": "TruckSpecifications"
+    },
     "Vehicle": {
       "type": "object",
       "title": "Vehicle",
@@ -2139,8 +2206,22 @@
           "type": "string",
           "example": "1234"
         },
+        "truckSpecifications": {
+          "$ref": "#/definitions/TruckSpecifications"
+        },
         "type": {
           "type": "string"
+        },
+        "vehicleMarket": {
+          "type": "string",
+          "enum": [
+            "LIGHT",
+            "MEDIUM",
+            "HEAVY"
+          ]
+        },
+        "vehicleMeasurements": {
+          "$ref": "#/definitions/VehicleMeasurements"
         },
         "vin": {
           "type": "string",
@@ -2155,6 +2236,32 @@
       "required": [
         "vin"
       ]
+    },
+    "VehicleMeasurements": {
+      "type": "object",
+      "properties": {
+        "curbWeight": {
+          "type": "number",
+          "format": "double"
+        },
+        "grossVehicleWeightRating": {
+          "type": "number",
+          "format": "double"
+        },
+        "height": {
+          "type": "number",
+          "format": "double"
+        },
+        "length": {
+          "type": "number",
+          "format": "double"
+        },
+        "width": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "VehicleMeasurements"
     },
     "VehiclePhoto": {
       "type": "object",
@@ -2328,6 +2435,12 @@
         },
         "fare": {
           "$ref": "#/definitions/FareOptionsRequest"
+        },
+        "gatePasses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TempFile"
+          }
         },
         "notes": {
           "type": "string"
