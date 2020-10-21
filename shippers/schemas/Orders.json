@@ -19,8 +19,8 @@
       "url": "https://runbuggy.com/terms/"
     }
   },
-  "host": "apps.runbuggy.com",
-  "basePath": "/staging-v2/api",
+  "host": "ng.runbuggy.com",
+  "basePath": "/demo/orders-workflow",
   "tags": [
     {
       "name": "Orders",
