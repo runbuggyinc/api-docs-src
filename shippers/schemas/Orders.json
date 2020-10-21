@@ -285,6 +285,55 @@
             "Authorization": []
           }
         ]
+      },
+      "patch": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "patchOrder",
+        "operationId": "patchOrderUsingPATCH",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OrderPatchRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
       }
     },
     "/orders/{id}/cancel": {
@@ -348,6 +397,45 @@
             "Authorization": []
           }
         ]
+      }
+    },
+    "/orders/{id}/full": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "getFullOrderWithId",
+        "operationId": "getFullOrderWithIdUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OrderFull"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
       }
     },
     "/orders/{id}/vehicle-transfer-orders": {
@@ -1163,6 +1251,90 @@
     }
   },
   "definitions": {
+    "AdditionalData": {
+      "type": "object",
+      "properties": {
+        "activity": {
+          "$ref": "#/definitions/Activity"
+        },
+        "battery": {
+          "$ref": "#/definitions/Battery"
+        },
+        "coords": {
+          "$ref": "#/definitions/Coords"
+        },
+        "extras": {
+          "$ref": "#/definitions/Extras"
+        },
+        "is_moving": {
+          "type": "boolean"
+        },
+        "odometer": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "uuid": {
+          "type": "string"
+        }
+      },
+      "title": "AdditionalData"
+    },
+    "Activity": {
+      "type": "object",
+      "properties": {
+        "confidence": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "title": "Activity"
+    },
+    "Battery": {
+      "type": "object",
+      "properties": {
+        "charging": {
+          "type": "boolean"
+        },
+        "level": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "Battery"
+    },
+    "Coords": {
+      "type": "object",
+      "properties": {
+        "accuracy": {
+          "type": "number",
+          "format": "double"
+        },
+        "altitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "heading": {
+          "type": "number",
+          "format": "double"
+        },
+        "speed": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "Coords"
+    },
+    "Extras": {
+      "type": "object",
+      "title": "Extras"
+    },
     "AddressComponents": {
       "type": "object",
       "properties": {
@@ -1350,6 +1522,28 @@
         "pickup"
       ]
     },
+    "Direction": {
+      "type": "object",
+      "properties": {
+        "distance": {
+          "$ref": "#/definitions/Distance"
+        },
+        "dropOff": {
+          "$ref": "#/definitions/Location"
+        },
+        "dropOffPickup": {
+          "$ref": "#/definitions/Location"
+        },
+        "pickup": {
+          "$ref": "#/definitions/Location"
+        },
+        "sequence": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "Direction"
+    },
     "Distance": {
       "type": "object",
       "properties": {
@@ -1386,7 +1580,7 @@
         }
       }
     },
-    "error": {
+    "Error": {
       "type": "object",
       "title": "Error",
       "description": "A common Error object.",
@@ -1626,6 +1820,31 @@
         "lng"
       ]
     },
+    "LastDriverLocation": {
+      "type": "object",
+      "properties": {
+        "company": {
+          "$ref": "#/definitions/Company"
+        },
+        "data": {
+          "$ref": "#/definitions/AdditionalData"
+        },
+        "location": {
+          "$ref": "#/definitions/Geolocation"
+        },
+        "moving": {
+          "type": "boolean"
+        },
+        "time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "title": "LastDriverLocationExt"
+    },
     "Location": {
       "type": "object",
       "title": "Location",
@@ -1757,7 +1976,7 @@
             "array"
           ],
           "items": {
-            "$ref": "#/definitions/error"
+            "$ref": "#/definitions/Error"
           }
         },
         "fare": {
@@ -1790,6 +2009,91 @@
         "status",
         "type"
       ]
+    },
+    "OrderFull": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "referenceNumber": {
+          "type": "string"
+        },
+        "created": {
+          "$ref": "#/definitions/Created"
+        },
+        "completedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "canceled": {
+          "$ref": "#/definitions/Canceled"
+        },
+        "dedicatedTransporter": {
+          "$ref": "#/definitions/Company"
+        },
+        "driverLocations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LastDriverLocation"
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Error"
+          }
+        },
+        "fare": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FareItem"
+          }
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        },
+        "preferredStatusExpiration": {
+          "type": "string"
+        },
+        "preferredTransporters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Company"
+          }
+        },
+        "replacement": {
+          "$ref": "#/definitions/Replacement"
+        },
+        "status": {
+          "type": "string"
+        },
+        "transportationOrders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TransportationOrder"
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "BASIC"
+          ]
+        },
+        "vehicleTransferOrders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VehicleTransferOrder"
+          }
+        }
+      },
+      "title": "OrderFull"
     },
     "Replacement": {
       "type": "object",
@@ -1852,6 +2156,21 @@
         "type",
         "vehicleTransferOrders"
       ]
+    },
+    "OrderPatchRequest": {
+      "type": "object",
+      "properties": {
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "title": "OrderPatchRequest"
     },
     "OrderResponse": {
       "type": "object",
@@ -2210,6 +2529,51 @@
       },
       "title": "TempFile"
     },
+    "TransportationOrder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "referenceNumber": {
+          "type": "string"
+        },
+        "created": {
+          "$ref": "#/definitions/Created"
+        },
+        "canceled": {
+          "$ref": "#/definitions/Canceled"
+        },
+        "directions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Direction"
+          }
+        },
+        "geolocation": {
+          "$ref": "#/definitions/Geolocation"
+        },
+        "status": {
+          "type": "string"
+        },
+        "transporter": {
+          "$ref": "#/definitions/Company"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "BASIC"
+          ]
+        },
+        "vehicleTransferOrders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VehicleTransferOrderIds"
+          }
+        }
+      },
+      "title": "TransportationOrderExt"
+    },
     "TruckSpecifications": {
       "type": "object",
       "properties": {
@@ -2437,7 +2801,7 @@
         "errors": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/error"
+            "$ref": "#/definitions/Error"
           }
         },
         "labels": {
