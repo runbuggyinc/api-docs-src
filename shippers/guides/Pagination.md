@@ -11,7 +11,7 @@ Paginated resources are returned in a common format:
 {
    "content":[
       {
-        //Order
+        //e.g. Order
       }
    ],
    "empty":false,
