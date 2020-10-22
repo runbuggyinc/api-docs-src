@@ -524,7 +524,7 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Query Orders using RSQL. See https://molgenis.gitbooks.io/molgenis/content/guide-rsql.html",
+            "description": "Query Orders using RSQL.",
             "required": false,
             "type": "string"
           }
@@ -547,7 +547,7 @@
           }
         },
         "deprecated": false,
-        "description": "Search expanded orders using RSQL.",
+        "description": "Search expanded orders using RSQL. For example: orders/full?query=created.date>2020-10-15T00:00:00Z;created.date<2020-10-21T00:00:00Z",
         "security": [
           {
             "Authorization": []
