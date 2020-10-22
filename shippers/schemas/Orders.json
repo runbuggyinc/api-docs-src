@@ -1914,12 +1914,6 @@
           "items": {
             "$ref": "#/definitions/VehicleTransferOrderQuoteRequest"
           }
-        },
-        "fare": {
-          "$ref": "#/definitions/FareOptionsRequest"
-        },
-        "traceId": {
-          "type": "string"
         }
       },
       "required": [
@@ -3255,9 +3249,6 @@
       "properties": {
         "directions": {
           "$ref": "#/definitions/BasicDirectionsRequest"
-        },
-        "fare": {
-          "$ref": "#/definitions/FareOptionsRequest"
         },
         "payer": {
           "$ref": "#/definitions/Company"
