@@ -630,104 +630,6 @@
         ]
       }
     },
-    "/vehicle-transfer-orders/expanded": {
-      "get": {
-        "tags": [
-          "Vehicle Transfer Orders"
-        ],
-        "summary": "Find vehicle transfer orders expanded",
-        "operationId": "findVehicleTransferOrdersExpandedPaginatedUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/PageVehicleTransferOrderExpanded"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false,
-        "description": "Retrieve a paginated Vehicle Transfer Orders.",
-        "security": [
-          {
-            "Authorization": []
-          }
-        ]
-      }
-    },
-    "/vehicle-transfer-orders/{id}/expanded": {
-      "get": {
-        "tags": [
-          "Vehicle Transfer Orders"
-        ],
-        "summary": "getExpanded",
-        "operationId": "getExpandedUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "id",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/VehicleTransferOrderExpanded"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false
-      }
-    },
     "/vehicle-transfer-orders/{id}": {
       "get": {
         "tags": [
@@ -828,12 +730,155 @@
         ]
       }
     },
+    "/vehicle-transfer-orders/{id}/expanded": {
+      "get": {
+        "tags": [
+          "Vehicle Transfer Orders"
+        ],
+        "summary": "Retrieve expanded vehicle transfer order",
+        "operationId": "getExpandedUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VehicleTransferOrderExpanded"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/vehicle-transfer-orders/expanded": {
+      "get": {
+        "tags": [
+          "Vehicle Transfer Orders"
+        ],
+        "summary": "Find vehicle transfer orders expanded",
+        "operationId": "findVehicleTransferOrdersExpandedPaginatedUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PageVehicleTransferOrderExpanded"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "Retrieve a paginated Vehicle Transfer Orders.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/vehicle-transfer-orders/gate-passes": {
+      "post": {
+        "tags": [
+          "Vehicle Transfer Orders"
+        ],
+        "summary": "Create a gate pass",
+        "operationId": "createGatePassUsingPOST",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TempFile"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
     "/vehicle-transfer-orders/{id}/gate-passes": {
       "get": {
         "tags": [
           "Vehicle Transfer Orders"
         ],
-        "summary": "getGatePasses",
+        "summary": "Get gate passes",
         "operationId": "getGatePassesUsingGET",
         "produces": [
           "application/json"
@@ -873,7 +918,7 @@
         "tags": [
           "Vehicle Transfer Orders"
         ],
-        "summary": "addGatePass",
+        "summary": "Add a gate pass",
         "operationId": "addGatePassUsingPOST",
         "consumes": [
           "multipart/form-data"
@@ -900,51 +945,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "201": {
-            "description": "Created"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/vehicle-transfer-orders/gate-passes": {
-      "post": {
-        "tags": [
-          "Vehicle Transfer Orders"
-        ],
-        "summary": "createGatePass",
-        "operationId": "createGatePassUsingPOST",
-        "consumes": [
-          "multipart/form-data"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "file",
-            "in": "formData",
-            "description": "file",
-            "required": true,
-            "type": "file"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/TempFile"
-            }
           },
           "201": {
             "description": "Created"
@@ -1003,102 +1003,6 @@
           }
         },
         "deprecated": false
-      }
-    },
-    "/vehicle-transfer-orders/{id}/photos": {
-      "get": {
-        "tags": [
-          "Vehicle Transfer Orders"
-        ],
-        "summary": "Retrieve vehicle photos",
-        "operationId": "getVehiclePhotosUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "id",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/VehiclePhotos"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false,
-        "description": "Get paginated Vehicle Transfer Order photos.",
-        "security": [
-          {
-            "Authorization": []
-          }
-        ]
-      }
-    },
-    "/vehicle-transfer-orders/{id}/photos/{photoId}": {
-      "get": {
-        "tags": [
-          "Vehicle Transfer Orders"
-        ],
-        "summary": "Get vehicle photo",
-        "operationId": "getVehiclePhotoUsingGET",
-        "produces": [
-          "application/octet-stream",
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "photoId",
-            "in": "path",
-            "description": "photoId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {}
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false,
-        "description": "Retrieve specified Vehicle Transfer Order photo file.",
-        "security": [
-          {
-            "Authorization": []
-          }
-        ]
       }
     },
     "/orders/quote": {
