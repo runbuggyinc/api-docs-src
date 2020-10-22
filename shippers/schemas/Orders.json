@@ -481,7 +481,7 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve an Order expanded with additional information.",
+        "description": "Retrieve an Order expanded with fully expanded Vehicle Transfer Orders.",
         "security": [
           {
             "Authorization": []
