@@ -316,7 +316,12 @@
           }
         },
         "deprecated": false,
-        "description": "Patch Order"
+        "description": "Patch Order",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/orders/{id}/cancel": {
@@ -430,6 +435,11 @@
             "description": "Not Found"
           }
         },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ],
         "deprecated": false
       }
     },
@@ -470,7 +480,12 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve an Order expanded with additional information."
+        "description": "Retrieve an Order expanded with additional information.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/orders/full": {
@@ -531,7 +546,12 @@
           }
         },
         "deprecated": false,
-        "description": "Search expanded orders using RSQL."
+        "description": "Search expanded orders using RSQL.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/orders/{id}/vehicle-transfer-orders": {
@@ -574,7 +594,12 @@
           }
         },
         "deprecated": false,
-        "description": "List an Order's the Vehicle Transfer Orders."
+        "description": "List an Order's the Vehicle Transfer Orders.",
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/vehicle-transfer-orders": {
