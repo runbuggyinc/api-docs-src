@@ -448,7 +448,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Retrieve an expanded Order",
+        "summary": "Retrieve an expanded order",
         "operationId": "getFullOrderWithIdUsingGET",
         "produces": [
           "application/json"
@@ -614,6 +614,12 @@
         ],
         "parameters": [
           {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "limit",
             "in": "query",
             "required": false,
@@ -766,7 +772,7 @@
         "tags": [
           "Vehicle Transfer Orders"
         ],
-        "summary": "Retrieve expanded vehicle transfer order",
+        "summary": "Get expanded vehicle transfer order",
         "operationId": "getExpandedUsingGET",
         "produces": [
           "application/json"
@@ -816,6 +822,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
           {
             "name": "limit",
             "in": "query",
