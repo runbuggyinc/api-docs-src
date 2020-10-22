@@ -1095,6 +1095,71 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/OrderQuoteRequest"
+            },
+            "x-examples": {
+              "application/json": {
+                "type": "BASIC",
+                "vehicleTransferOrders": [
+                  {
+                    "directions": {
+                      "pickup": {
+                        "name": "Rob's Lot",
+                        "address": "4323 N 78th St, Scottsdale, AZ 85251, USA",
+                        "geolocation": {
+                          "coordinates": [
+                            -111.911547,
+                            33.4993709
+                          ]
+                        },
+                        "type": "business"
+                      },
+                      "dropoff": {
+                        "name": "Jerry's House",
+                        "address": "4230 E Sells Dr, Phoenix, AZ 85018, USA",
+                        "geolocation": {
+                          "coordinates": [
+                            -111.9897083,
+                            33.5017089
+                          ]
+                        },
+                        "type": "personal"
+                      }
+                    },
+                    "vehicle": {
+                      "vin": "KL4CJCSBXEB690968"
+                    }
+                  },
+                  {
+                    "directions": {
+                      "pickup": {
+                        "name": "Rob's Lot",
+                        "address": "4323 N 78th St, Scottsdale, AZ 85251, USA",
+                        "geolocation": {
+                          "coordinates": [
+                            -111.911547,
+                            33.4993709
+                          ]
+                        },
+                        "type": "business"
+                      },
+                      "dropoff": {
+                        "name": "Jerry's House",
+                        "address": "4230 E Sells Dr, Phoenix, AZ 85018, USA",
+                        "geolocation": {
+                          "coordinates": [
+                            -111.9897083,
+                            33.5017089
+                          ]
+                        },
+                        "type": "personal"
+                      }
+                    },
+                    "vehicle": {
+                      "vin": "JTJHY7AX8B4079281"
+                    }
+                  }
+                ]
+              }
             }
           }
         ],
