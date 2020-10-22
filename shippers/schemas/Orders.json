@@ -967,7 +967,7 @@
         "tags": [
           "Vehicle Transfer Orders"
         ],
-        "summary": "getGatePass",
+        "summary": "Retrieve a gate pass",
         "operationId": "getGatePassUsingGET",
         "produces": [
           "application/json"
