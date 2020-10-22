@@ -63,7 +63,7 @@
                 "notes": "These are the orders for Ed's lot.",
                 "type": "BASIC",
                 "fare": {
-                  "name": "Gold"
+                  "name": "Platinum"
                 },
                 "vehicleTransferOrders": [
                   {
@@ -1931,12 +1931,14 @@
     },
     "FareOptionsRequest": {
       "type": "object",
+      "title": "FareOptionsRequest",
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "example": "Gold",
+          "description": "The name of the Fare option. The fare options are returned from the Quote operation."
         }
-      },
-      "title": "FareOptionsRequest"
+      }
     },
     "LocationPatch": {
       "type": "object",
