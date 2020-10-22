@@ -1932,25 +1932,10 @@
     "FareOptionsRequest": {
       "type": "object",
       "properties": {
-        "pickupSchedule": {
-          "$ref": "#/definitions/Window"
-        },
-        "dropOffSchedule": {
-          "$ref": "#/definitions/Window"
-        },
         "name": {
           "type": "string"
         },
-        "options": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "promotionCode": {
-          "type": "string"
-        },
-        "urgency": {
           "type": "string"
         }
       },
