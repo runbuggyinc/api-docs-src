@@ -467,49 +467,6 @@
         "description": "Retrieve an Order expanded with additional information."
       }
     },
-    "/orders/{id}/vehicle-transfer-orders": {
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "summary": "List order's vehicle transfers",
-        "operationId": "getOrderVehicleTransferOrdersUsingGET",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "id",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/VehicleTransferOrder"
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false,
-        "description": "List an Order's the Vehicle Transfer Orders."
-      }
-    },
     "/orders/full": {
       "get": {
         "tags": [
@@ -569,6 +526,49 @@
         },
         "deprecated": false,
         "description": "Search expanded orders using RSQL."
+      }
+    },
+    "/orders/{id}/vehicle-transfer-orders": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "List order's vehicle transfers",
+        "operationId": "getOrderVehicleTransferOrdersUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VehicleTransferOrder"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false,
+        "description": "List an Order's the Vehicle Transfer Orders."
       }
     },
     "/vehicle-transfer-orders": {
