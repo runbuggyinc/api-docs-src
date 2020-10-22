@@ -1934,9 +1934,6 @@
       "properties": {
         "name": {
           "type": "string"
-        },
-        "promotionCode": {
-          "type": "string"
         }
       },
       "title": "FareOptionsRequest"
