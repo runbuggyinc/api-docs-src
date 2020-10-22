@@ -797,7 +797,12 @@
             "description": "Not Found"
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/vehicle-transfer-orders/expanded": {
@@ -851,7 +856,7 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve a paginated Vehicle Transfer Orders.",
+        "description": "Retrieve paginated expanded Vehicle Transfer Orders.",
         "security": [
           {
             "Authorization": []
@@ -901,7 +906,12 @@
             "description": "Not Found"
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/vehicle-transfer-orders/{id}/gate-passes": {
@@ -943,7 +953,12 @@
             "description": "Not Found"
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -990,7 +1005,12 @@
             "description": "Not Found"
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/vehicle-transfer-orders/{id}/gate-passes/{passId}": {
@@ -1033,7 +1053,12 @@
             "description": "Not Found"
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/orders/quote": {
