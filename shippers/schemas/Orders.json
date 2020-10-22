@@ -170,6 +170,12 @@
         ],
         "parameters": [
           {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "limit",
             "in": "query",
             "required": false,
@@ -1010,7 +1016,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Create order quote",
+        "summary": "Quote an order",
         "operationId": "quoteOrderUsingPOST",
         "consumes": [
           "application/json"
