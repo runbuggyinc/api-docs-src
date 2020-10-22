@@ -15,7 +15,7 @@
       "email": "support@runbuggy.com"
     },
     "license": {
-      "name": "Copyright © RunBuggy 2019",
+      "name": "Copyright © RunBuggy 2020",
       "url": "https://runbuggy.com/terms/"
     }
   },
@@ -1583,7 +1583,7 @@
         "date": {
           "type": "string",
           "format": "ISO 8601 datetime",
-          "example": "2019-12-05T21:18:47+00:00",
+          "example": "2020-12-05T21:18:47+00:00",
           "description": "Datetime in ISO 8601 format."
         },
         "reason": {
@@ -1646,7 +1646,7 @@
         "date": {
           "type": "string",
           "format": "ISO 8601 datetime",
-          "example": "2019-12-05T21:18:47+00:00",
+          "example": "2020-12-05T21:18:47+00:00",
           "description": "Datetime in ISO 8601 format."
         }
       }
@@ -1774,7 +1774,7 @@
         "dateTime": {
           "type": "string",
           "format": "ISO 8601 datetime",
-          "example": "2019-12-05T21:18:47+00:00",
+          "example": "2020-12-05T21:18:47+00:00",
           "description": "Datetime in ISO 8601 format."
         },
         "name": {
@@ -2706,7 +2706,7 @@
         "time": {
           "type": "string",
           "format": "ISO 8601 datetime",
-          "example": "2019-12-05T21:18:47+00:00",
+          "example": "2020-12-05T21:18:47+00:00",
           "description": "Datetime in ISO 8601 format."
         }
       },
@@ -2725,7 +2725,7 @@
         "time": {
           "type": "string",
           "format": "ISO 8601 datetime",
-          "example": "2019-12-05T21:18:47+00:00",
+          "example": "2020-12-05T21:18:47+00:00",
           "description": "Datetime in ISO 8601 format."
         }
       },
@@ -2988,7 +2988,7 @@
         },
         "reconciliationCode": {
           "type": "string",
-          "example": "RBCON2019"
+          "example": "RBCON2020"
         },
         "states": {
           "$ref": "#/definitions/States"
@@ -3116,7 +3116,7 @@
         },
         "reconciliationCode": {
           "type": "string",
-          "example": "RBCON2019"
+          "example": "RBCON2020"
         },
         "states": {
           "$ref": "#/definitions/States"
@@ -3341,13 +3341,13 @@
         "start": {
           "type": "string",
           "format": "ISO 8601 datetime",
-          "example": "2019-12-05T21:18:47+00:00",
+          "example": "2020-12-05T21:18:47+00:00",
           "description": "Datetime in ISO 8601 format."
         },
         "end": {
           "type": "string",
           "format": "ISO 8601 datetime",
-          "example": "2019-12-05T21:18:47+00:00",
+          "example": "2020-12-05T21:18:47+00:00",
           "description": "Datetime in ISO 8601 format."
         },
         "priority": {
