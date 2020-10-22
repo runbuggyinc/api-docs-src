@@ -3,12 +3,15 @@
 The `VehicleTransferOrder.status` field has the following possible values:
 ```
 DRAFT
+READY
 AVAILABLE
 CLAIMED
 UNCLAIMED
 ASSIGNED
 REJECTED
 ACCEPTED
+DRIVER_ARRIVED
+PICKED_UP
 SIGNATURE_ON_PICKUP
 DELIVERED
 CANCELED
@@ -40,11 +43,23 @@ The Vehicle Transfer Order has been rejected by a transportation company driver.
 ### Accepted
 The Vehicle Transfer Order has been accepted by a transportation company driver.
 
+### Driver Arrived
+The Vehicle Transfer Order driver has arrived to the pick up location.
+
+### Picked up
+The Vehicle Transfer Order vehicle has been picked up by the driver.
+
 ### Signature on Pickup
-The Vehicle Transfer Order has been picked up by a transportation company driver.
+The Vehicle Transfer Order pick up paperwork has been signed by the transportation company driver.
+
+### Unloaded
+The Vehicle Transfer Order has been delivered and unloaded at the destination.
 
 ### Delivered
-The Vehicle Transfer Order has been delivered to its destination.
+The Vehicle Transfer Order delivery paperwork has been signed.
 
 ### Error
 The Vehicle Transfer Order contains errors.
+
+### Canceled
+The Vehicle Transfer Order has been canceled.
