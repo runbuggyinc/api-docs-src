@@ -2108,7 +2108,7 @@
         },
         "referenceNumber": {
           "type": "string",
-          "example": "31232331"
+          "example": "S-000035994"
         },
         "vehicleTransferOrders": {
           "type": "array",
@@ -3007,7 +3007,7 @@
         },
         "referenceNumber": {
           "type": "string",
-          "example": "2000232-123432"
+          "example": "V-001035812"
         },
         "created": {
           "$ref": "#/definitions/Created"
