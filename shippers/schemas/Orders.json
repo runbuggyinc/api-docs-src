@@ -2979,24 +2979,6 @@
         }
       }
     },
-    "VehiclePhotos": {
-      "type": "object",
-      "properties": {
-        "dropoffPhotos": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/VehiclePhoto"
-          }
-        },
-        "pickupPhotos": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/VehiclePhoto"
-          }
-        }
-      },
-      "title": "VehiclePhotos"
-    },
     "VehicleTransferOrderExpanded": {
       "type": "object",
       "title": "VehicleTransferOrder",
