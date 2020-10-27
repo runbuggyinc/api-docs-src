@@ -19,7 +19,7 @@
       "url": "https://runbuggy.com/terms/"
     }
   },
-  "host": "ng.runbuggy.com",
+  "host": "apps.runbuggy.com",
   "basePath": "/demo/orders-workflow",
   "tags": [
     {
