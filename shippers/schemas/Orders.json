@@ -2085,7 +2085,11 @@
           "type": "string"
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "business",
+            "personal"
+          ]
         },
         "windows": {
           "type": "array",
