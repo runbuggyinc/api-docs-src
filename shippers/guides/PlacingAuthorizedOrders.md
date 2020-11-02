@@ -34,7 +34,9 @@ Request to Create Order for Company with the ID `7b34ba14-1f7a-4492-9fd7-4bef02a
         "vin": "KL4CJHSB3EB688122"
       },
       "payer": {
-        "id": "7b34ba14-1f7a-4492-9fd7-4bef02ad6256"
+        "id": "7b34ba14-1f7a-4492-9fd7-4bef02ad6256",
+        "type": "DEALER",
+        "name": "Acme Auto World"
       }   
     }
   ]
