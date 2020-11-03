@@ -1938,7 +1938,10 @@
           "example": "Gold",
           "description": "The name of the Fare option. The fare options are returned from the Quote operation."
         }
-      }
+      },
+      "required": [
+        "name"
+      ]
     },
     "LocationPatch": {
       "type": "object",
@@ -2333,7 +2336,8 @@
       },
       "required": [
         "type",
-        "vehicleTransferOrders"
+        "vehicleTransferOrders",
+        "fare"
       ]
     },
     "OrderPatchRequest": {
