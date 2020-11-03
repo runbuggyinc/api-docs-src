@@ -1937,6 +1937,16 @@
           "type": "string",
           "example": "Gold",
           "description": "The name of the Fare option. The fare options are returned from the Quote operation."
+        },
+        "options": {
+          "type": "array",
+          "example": [
+            "enclosed"
+          ],
+          "description": "Fare options",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": [
