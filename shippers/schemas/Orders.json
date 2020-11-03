@@ -3041,6 +3041,7 @@
     "VehicleTransferOrderExpanded": {
       "type": "object",
       "title": "VehicleTransferOrder",
+      "description": "A Vehicle Transfer Order.",
       "properties": {
         "id": {
           "type": "string",
@@ -3058,9 +3059,6 @@
         },
         "directions": {
           "$ref": "#/definitions/DetailedDirections"
-        },
-        "driverInfo": {
-          "$ref": "#/definitions/DriverInfo"
         },
         "fare": {
           "$ref": "#/definitions/Fare"
@@ -3151,23 +3149,18 @@
       },
       "required": [
         "id",
-        "created",
-        "directions",
-        "driverInfo",
-        "fare",
-        "geolocation",
-        "orderId",
         "referenceNumber",
-        "states",
-        "status",
-        "transporter",
-        "vehicle"
-      ],
-      "description": "A Vehicle Transfer Order."
+        "created",
+        "vehicle",
+        "directions",
+        "fare",
+        "status"
+      ]
     },
     "VehicleTransferOrder": {
       "type": "object",
       "title": "VehicleTransferOrder",
+      "description": "A Vehicle Transfer Order.",
       "properties": {
         "id": {
           "type": "string",
@@ -3185,9 +3178,6 @@
         },
         "directions": {
           "$ref": "#/definitions/DetailedDirections"
-        },
-        "driverInfo": {
-          "$ref": "#/definitions/DriverInfo"
         },
         "fare": {
           "$ref": "#/definitions/Fare"
@@ -3279,19 +3269,14 @@
       },
       "required": [
         "id",
-        "created",
-        "directions",
-        "driverInfo",
-        "fare",
-        "geolocation",
-        "orderId",
         "referenceNumber",
-        "states",
-        "status",
-        "transporter",
-        "vehicle"
-      ],
-      "description": "A Vehicle Transfer Order."
+        "created",
+        "vehicle",
+        "directions",
+        "fare",
+        "orderId",
+        "status"
+      ]
     },
     "VehicleTransferOrderIds": {
       "type": "object",
