@@ -1940,10 +1940,7 @@
         },
         "options": {
           "type": "array",
-          "example": [
-            "enclosed"
-          ],
-          "description": "Fare options",
+          "description": "Fare options. We currently support \"enclosed\"",
           "items": {
             "type": "string"
           }
