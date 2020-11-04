@@ -1865,16 +1865,6 @@
           "format": "double",
           "example": 450.98
         },
-        "price": {
-          "type": "number",
-          "format": "double"
-        },
-        "pickupSchedule": {
-          "$ref": "#/definitions/Window"
-        },
-        "dropOffSchedule": {
-          "$ref": "#/definitions/Window"
-        },
         "items": {
           "type": "array",
           "items": {
@@ -1893,9 +1883,6 @@
         "promotionCode": {
           "type": "string",
           "example": "RBCON19"
-        },
-        "urgency": {
-          "type": "string"
         }
       }
     },
