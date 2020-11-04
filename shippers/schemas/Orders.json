@@ -3298,9 +3298,6 @@
         "directions": {
           "$ref": "#/definitions/DetailedDirectionsRequest"
         },
-        "fare": {
-          "$ref": "#/definitions/FareOptionsRequest"
-        },
         "gatePasses": {
           "type": "array",
           "items": {
