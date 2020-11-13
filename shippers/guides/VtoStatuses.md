@@ -15,6 +15,7 @@ PICKED_UP
 SIGNATURE_ON_PICKUP
 DELIVERED
 CANCELED
+COMPLETE
 ERROR
 ```
 
@@ -57,6 +58,9 @@ The Vehicle Transfer Order has been delivered and unloaded at the destination.
 
 ### Delivered
 The Vehicle Transfer Order delivery paperwork has been signed.
+
+### Complete
+The Vehicle Transfer Order delivery process has been completed.
 
 ### Error
 The Vehicle Transfer Order contains errors.

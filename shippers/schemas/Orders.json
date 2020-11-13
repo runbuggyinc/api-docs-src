@@ -3088,6 +3088,7 @@
             "UNLOADED",
             "DELIVERED",
             "CANCELED",
+            "COMPLETE",
             "ERROR"
           ]
         },
