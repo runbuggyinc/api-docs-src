@@ -1,7 +1,9 @@
 # Handling 202's 
 
-A response with 202 HTTP status code indicates that the request was accepted and being processed. A `location` header
- will be present and contain the URI for the client to use to poll for the result of the operation.
+A response with 202 HTTP status code indicates that the request was accepted and being processed. 
+
+When the operation creates a new resource, a `location` header will be present and contain the URI for the client to 
+use in order to poll for the result of the operation.
 
 Here is an example of handling 202's when creating an Order *([view full source](https://github.com/runbuggyinc/api-doc-src/blob/master/shippers/src/202-example.js))*
 

@@ -370,8 +370,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "202": {
+            "description": "Request has been accepted and is being processed."
           },
           "400": {
             "description": "Bad request"
@@ -387,7 +387,7 @@
           }
         },
         "deprecated": false,
-        "description": "Cancel specified Order. If vehicles have shipped you may no longer cancel Order.",
+        "description": "Cancel specified Order. If vehicles have shipped you may no longer cancel Order. 202 status code indicates the Cancelation request has been accepted and is processing. Check the Order resource for the status to change to \"CANCELED\".",
         "security": [
           {
             "Authorization": []
