@@ -1,10 +1,12 @@
 # Pagination
 
 Paginated resources support query params:
-* limit
-* page
-* size
-* sort
+* size - the number of results per page
+* page - the page number
+* sort - the field and direction to sort
+
+Example:
+* `orders?page=0&size=10&sort=created.date,desc`
 
 Paginated resources are returned in a common format:
 ```
