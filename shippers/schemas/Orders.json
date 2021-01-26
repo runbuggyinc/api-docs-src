@@ -509,11 +509,10 @@
         ],
         "parameters": [
           {
-            "name": "limit",
+            "name": "sort",
             "in": "query",
             "required": false,
-            "type": "integer",
-            "format": "int32"
+            "type": "string"
           },
           {
             "name": "page",
