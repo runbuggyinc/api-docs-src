@@ -1686,7 +1686,7 @@
         }
       }
     },
-    "CompanyRequiredName": {
+    "CompanyRequest": {
       "type": "object",
       "title": "Company",
       "properties": {
@@ -1708,7 +1708,33 @@
         }
       },
       "required": [
-        "name"
+        "id"
+      ]
+    },
+    "CompanyRequestRequiredName": {
+      "type": "object",
+      "title": "Company",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "c0ef80ce-2579-4682-af4f-c1d29457848a"
+        },
+        "name": {
+          "type": "string",
+          "example": "Auto Land"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "DEALER",
+            "AUCTION"
+          ],
+          "example": "DEALER"
+        }
+      },
+      "required": [
+        "name",
+        "id"
       ]
     },
     "Contact": {
@@ -2403,10 +2429,10 @@
           }
         },
         "owner": {
-          "$ref": "#/definitions/Company"
+          "$ref": "#/definitions/CompanyRequest"
         },
         "payer": {
-          "$ref": "#/definitions/CompanyRequiredName"
+          "$ref": "#/definitions/CompanyRequestRequiredName"
         },
         "fare": {
           "$ref": "#/definitions/FareOptionsRequest"
