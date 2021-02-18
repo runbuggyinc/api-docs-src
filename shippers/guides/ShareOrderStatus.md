@@ -27,12 +27,10 @@ curl --location --request POST 'https://ng.runbuggy.com/testng/api/oauth2/token'
 
 ## 4) Open Order Status in IFrame
 
-Usie Order ID from Step 2 and access_token from Step 3
-
 The IFrame URL is constructed out of 4 query parameters:
 
  - `orderId` *(required)* The order you want to show the order status for.
- - `token`  *(required)*  The JWT token received from **response 3**
+ - `token`  *(required)*  The JWT token received from **Step 3**
  - `statusWhitelist` *(optional)* A comma separated list of statuses. This list determines which statuses to show 
    on the status bar and in the timeline. If omitted all statuses will be displayed.
      - *Statuses supported:* AVAILABLE, ORDER_NOTIFICATIONS, CLAIMED, VEHICLES_PICKEDUP, VEHICLES_SIGNATURE_PICKEDUP, 
