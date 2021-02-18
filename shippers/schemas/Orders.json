@@ -3021,7 +3021,8 @@
       },
       "required": [
         "vin"
-      ]
+      ],
+      "description": "When creating an order, there are 2 options for providing the Vehicle information. [See here](https://runbuggy.docs.stoplight.io/vehicle-data-options)"
     },
     "VehicleMeasurements": {
       "type": "object",
