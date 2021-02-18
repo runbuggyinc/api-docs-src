@@ -489,7 +489,7 @@
           }
         },
         "deprecated": false,
-        "description": "Retrieve an Order expanded with fully expanded Vehicle Transfer Orders.",
+        "description": "Retrieve an Order expanded with full Vehicle Transfer Orders.",
         "security": [
           {
             "Authorization": []
@@ -1686,6 +1686,31 @@
         }
       }
     },
+    "CompanyRequiredName": {
+      "type": "object",
+      "title": "Company",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "c0ef80ce-2579-4682-af4f-c1d29457848a"
+        },
+        "name": {
+          "type": "string",
+          "example": "Auto Land"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "DEALER",
+            "AUCTION"
+          ],
+          "example": "DEALER"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
     "Contact": {
       "type": "object",
       "title": "Contact",
@@ -1919,6 +1944,10 @@
       "type": "object",
       "title": "FareOptionsRequest",
       "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
         "name": {
           "type": "string",
           "example": "Gold",
@@ -2100,7 +2129,7 @@
     },
     "VehicleTransferOrderRequestLocation": {
       "type": "object",
-      "title": "Location",
+      "title": "VehicleTransferOrderRequestLocation",
       "properties": {
         "address": {
           "type": "string",
@@ -2160,11 +2189,17 @@
             "$ref": "#/definitions/VehicleTransferOrderIds"
           }
         },
-        "canceled": {
-          "$ref": "#/definitions/Canceled"
-        },
         "created": {
           "$ref": "#/definitions/Created"
+        },
+        "owner": {
+          "$ref": "#/definitions/Company"
+        },
+        "payer": {
+          "$ref": "#/definitions/Company"
+        },
+        "canceled": {
+          "$ref": "#/definitions/Canceled"
         },
         "labels": {
           "type": "array",
@@ -2238,12 +2273,18 @@
         "referenceNumber": {
           "type": "string"
         },
-        "created": {
-          "$ref": "#/definitions/Created"
-        },
         "completedDate": {
           "type": "string",
           "format": "date-time"
+        },
+        "created": {
+          "$ref": "#/definitions/Created"
+        },
+        "owner": {
+          "$ref": "#/definitions/Company"
+        },
+        "payer": {
+          "$ref": "#/definitions/Company"
         },
         "canceled": {
           "$ref": "#/definitions/Canceled"
@@ -2360,6 +2401,12 @@
           "items": {
             "$ref": "#/definitions/VehicleTransferOrderRequest"
           }
+        },
+        "owner": {
+          "$ref": "#/definitions/Company"
+        },
+        "payer": {
+          "$ref": "#/definitions/CompanyRequiredName"
         },
         "fare": {
           "$ref": "#/definitions/FareOptionsRequest"
