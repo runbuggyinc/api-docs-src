@@ -53,12 +53,12 @@ A map with order details
 
 #### Status Bar
 
-A status bar showing the progression of the order. The statuses can be whitelisted using the **statusWhitelist** parameter
+A status bar showing the progression of the order. The statuses can be whitelisted using the `statusWhitelist` parameter
 
 ![Status Bar](https://runbuggyinc.github.io/api-doc-src/shippers/assets/widget-status-bar.png)
 
 #### Timeline
 
-A timestamped chronological list of order statuses. The statuses can be whitelisted using the **statusWhitelist** parameter
+A timestamped chronological list of order statuses. The statuses can be whitelisted using the `statusWhitelist` parameter
 
 ![Timeline](https://runbuggyinc.github.io/api-doc-src/shippers/assets/widget-timeline.png)
