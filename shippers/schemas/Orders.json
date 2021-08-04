@@ -1952,22 +1952,28 @@
     "EstimatedTimeToArrival": {
       "type": "object",
       "properties": {
+        "start": {
+          "type": "string",
+          "format": "ISO 8601 datetime",
+          "example": "2020-12-05T21:18:47+00:00",
+          "description": "Datetime in ISO 8601 format."
+        },
+        "end": {
+          "type": "string",
+          "format": "ISO 8601 datetime",
+          "example": "2020-12-05T21:18:47+00:00",
+          "description": "Datetime in ISO 8601 format."
+        },
+        "initial": {
+          "type": "string",
+          "format": "ISO 8601 datetime",
+          "example": "2020-12-05T21:18:47+00:00",
+          "description": "Datetime in ISO 8601 format."
+        },
         "accuracy": {
           "type": "string"
         },
         "calculated": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "end": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "initial": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "start": {
           "type": "string",
           "format": "date-time"
         },
