@@ -13,6 +13,8 @@ ACCEPTED
 DRIVER_ARRIVED
 PICKED_UP
 SIGNATURE_ON_PICKUP
+PROVIDED_ETA_DROPOFF
+UNLOADED
 DELIVERED
 CANCELED
 COMPLETE
@@ -52,6 +54,9 @@ The Vehicle Transfer Order vehicle has been picked up by the driver.
 
 ### Signature on Pickup
 The Vehicle Transfer Order pick up paperwork has been signed by the transportation company driver.
+
+### Provided ETA - Drop-off
+The Vehicle Transfer Order drop-off ETA has been set by the driver.
 
 ### Unloaded
 The Vehicle Transfer Order has been delivered and unloaded at the destination.
