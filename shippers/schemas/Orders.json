@@ -6,7 +6,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "description": "### [Create Orders](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost) to transfer vehicles.",
+    "description": "### [Create Orders](https://runbuggy.stoplight.io/docs/shipping-api/b3A6NDE4MzU1MTY-create-an-order) to transfer vehicles.",
     "version": "1.0",
     "title": "Orders",
     "termsOfService": "https://runbuggy.com/terms/",
@@ -147,7 +147,7 @@
             }
           },
           "202": {
-            "description": "The request is being processed. See [Handling 202's](https://runbuggy.docs.stoplight.io/guides/202-responses)."
+            "description": "The request is being processed. See [Handling 202's](https://runbuggy.stoplight.io/docs/shipping-api/ZG9jOjQxODQyNzEw-202-status-code)."
           },
           "400": {
             "description": "Bad Request"
@@ -1178,7 +1178,7 @@
             }
           },
           "202": {
-            "description": "The request is being processed. See [Handling 202's](https://runbuggy.docs.stoplight.io/guides/202-responses)."
+            "description": "The request is being processed. See [Handling 202's](https://runbuggy.stoplight.io/docs/shipping-api/ZG9jOjQxODQyNzEw-202-status-code)."
           },
           "400": {
             "description": "Bad Request"
