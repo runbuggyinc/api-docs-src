@@ -2,60 +2,6 @@
   "items": [
     {
       "type": "item",
-      "title": "Client Generation",
-      "uri": "/docs/ApiClients.md"
-    },
-    {
-      "type": "item",
-      "title": "Authentication",
-      "uri": "/docs/Authentication.md"
-    },
-    {
-      "type": "item",
-      "title": "Handling 202 S",
-      "uri": "/docs/Handling202s.md"
-    },
-    {
-      "type": "item",
-      "title": "Pagination",
-      "uri": "/docs/Pagination.md"
-    },
-    {
-      "type": "item",
-      "title": "Placing an Order for another Company",
-      "uri": "/docs/PlacingAuthorizedOrders.md"
-    },
-    {
-      "type": "item",
-      "title": "Share Order Status with 3rd parties",
-      "uri": "/docs/ShareOrderStatus.md"
-    },
-    {
-      "type": "item",
-      "title": "Ship Vehicles",
-      "uri": "/docs/ShipVehicles.md"
-    },
-    {
-      "type": "item",
-      "title": "Vehicle Requirements",
-      "uri": "/docs/VehicleRequirements.md"
-    },
-    {
-      "type": "item",
-      "title": "Vto Statuses",
-      "uri": "/docs/VtoStatuses.md"
-    },
-    {
-      "type": "item",
-      "title": "Webhooks",
-      "uri": "/docs/Webhooks.md"
-    },
-    {
-      "type": "divider",
-      "title": "APIS"
-    },
-    {
-      "type": "item",
       "title": "Orders",
       "uri": "/shippers/schemas/Orders.json"
     },
@@ -68,6 +14,60 @@
       "type": "item",
       "title": "Companies",
       "uri": "/shippers/schemas/Companies.json"
+    },
+    {
+      "type": "divider",
+      "title": "Guides"
+    },
+    {
+      "type": "item",
+      "title": "Authentication",
+      "uri": "/docs/Authentication.md"
+    },
+    {
+      "type": "item",
+      "title": "Ship Vehicles",
+      "uri": "/docs/ShipVehicles.md"
+    },
+    {
+      "type": "item",
+      "title": "202 Status Code",
+      "uri": "/docs/Handling202s.md"
+    },
+    {
+      "type": "item",
+      "title": "Vto Statuses",
+      "uri": "/docs/VtoStatuses.md"
+    },
+    {
+      "type": "item",
+      "title": "Vehicle Requirements",
+      "uri": "/docs/VehicleRequirements.md"
+    },
+    {
+      "type": "item",
+      "title": "Client Generation",
+      "uri": "/docs/ApiClients.md"
+    },
+    {
+      "type": "item",
+      "title": "Pagination",
+      "uri": "/docs/Pagination.md"
+    },
+    {
+      "type": "item",
+      "title": "Webhooks",
+      "uri": "/docs/Webhooks.md"
+    },
+    {
+      "type": "item",
+      "title": "Share Order Status with 3rd parties",
+      "uri": "/docs/ShareOrderStatus.md"
+    },
+    {
+      "type": "item",
+      "title": "Placing an Order for another Company",
+      "uri": "/docs/PlacingAuthorizedOrders.md"
     }
   ]
 }
