@@ -1,5 +1,5 @@
 # Vehicle Request Requirements
-When [creating an order](https://runbuggy.docs.stoplight.io/reference/orders/orders/createorderusingpost), you have two options for sending over the vehicle information.
+When [creating an order](https://runbuggy.stoplight.io/docs/shipping-api/b3A6NDE4MzU1MTY-create-an-order), you have two options for sending over the vehicle information.
 
 ## Provide the VIN
 *example*:
