@@ -6,7 +6,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "description": "### [Create Orders](https://runbuggy.stoplight.io/docs/shipping-api/b3A6NDE4MzU1MTY-create-an-order) to transfer vehicles.",
+    "description": "### [Create Orders](/docs/shipping-api/b3A6NDE4MzU1MTY-create-an-order) to transfer vehicles.",
     "version": "1.0",
     "title": "Orders",
     "termsOfService": "https://runbuggy.com/terms/",
@@ -147,7 +147,7 @@
             }
           },
           "202": {
-            "description": "The request is being processed. See [Handling 202's](https://runbuggy.stoplight.io/docs/shipping-api/ZG9jOjQxODQyNzEw-202-status-code)."
+            "description": "The request is being processed. See [Handling 202's](/docs/shipping-api/ZG9jOjQxODQyNzEw-202-status-code)."
           },
           "400": {
             "description": "Bad Request"
@@ -1178,7 +1178,7 @@
             }
           },
           "202": {
-            "description": "The request is being processed. See [Handling 202's](https://runbuggy.stoplight.io/docs/shipping-api/ZG9jOjQxODQyNzEw-202-status-code)."
+            "description": "The request is being processed. See [Handling 202's](/docs/shipping-api/ZG9jOjQxODQyNzEw-202-status-code)."
           },
           "400": {
             "description": "Bad Request"
@@ -3085,7 +3085,7 @@
       "required": [
         "vin"
       ],
-      "description": "When creating an order, there are 2 options for providing the Vehicle information. [See here](https://runbuggy.stoplight.io/docs/shipping-api/ZG9jOjQxODQyNzE1-vehicle-requirements)"
+      "description": "When creating an order, there are 2 options for providing the Vehicle information. [See here](/docs/shipping-api/ZG9jOjQxODQyNzE1-vehicle-requirements)"
     },
     "VehicleMeasurements": {
       "type": "object",
@@ -3589,7 +3589,7 @@
       "type": "apiKey",
       "in": "header",
       "name": "Authorization",
-      "description": "See the [Authentication Guide](https://runbuggy.stoplight.io/docs/shipping-api/ZG9jOjExMDcyMQ-authentication)."
+      "description": "See the [Authentication Guide](/docs/shipping-api/ZG9jOjExMDcyMQ-authentication)."
     }
   }
 }
