@@ -157,7 +157,7 @@
       "type": "apiKey",
       "in": "header",
       "name": "Authorization",
-      "description": "See the [Authentication Guide](https://runbuggy.stoplight.io/docs/shipping-api/ZG9jOjExMDcyMQ-authentication)."
+      "description": "See the [Authentication Guide](/docs/shipping-api/ZG9jOjExMDcyMQ-authentication)."
     }
   }
 }
