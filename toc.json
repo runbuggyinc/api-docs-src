@@ -46,6 +46,11 @@
     },
     {
       "type": "item",
+      "title": "Gate Passes",
+      "uri": "/docs/GatePasses.md"
+    },
+    {
+      "type": "item",
       "title": "Client Generation",
       "uri": "/docs/ApiClients.md"
     },
