@@ -5,6 +5,7 @@ Gate passes are files attached to the Vehicle Transfer Orders.
 There are two ways to handle adding gate passes.
 
 ## 1. Create Order then Attach Gate Pass
+This flow allows gate passes to be attached to an Order that has already been placed.
 
 Steps:
 1. [Create Order](/docs/shipping-api/b3A6NDE4MzU1MTY-create-an-order)
@@ -14,6 +15,7 @@ Steps:
 
 
 ## 2. Create Gate Pass then Create Order
+This flow is typically used when a user is manually assembling an order. It allows the user to set the gate passes before the order is initially submitted.
 
 Steps:
 1. [Create Gate Passes](/docs/shipping-api/b3A6NDE4MzU1MzA-create-a-gate-pass). This will return the resource path.
