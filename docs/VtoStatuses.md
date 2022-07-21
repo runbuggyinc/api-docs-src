@@ -7,6 +7,7 @@ READY
 AVAILABLE
 CLAIMED
 UNCLAIMED
+APPROVED
 ASSIGNED
 REJECTED
 ACCEPTED
@@ -36,6 +37,9 @@ The Vehicle Transfer Order has been claimed by a transportation company to be tr
 
 ### Unclaimed
 The Vehicle Transfer Order has been unclaimed by a transportation company.
+
+### Approved
+The Vehicle Transfer Order has been reviewed and approved by RunBuggy after transportation company unclaimed due to issues with order.
 
 ### Assigned
 The Vehicle Transfer Order has been assigned to a transportation company driver.
