@@ -43,3 +43,4 @@ Paginated resources are returned in a common format:
    "totalPages":10
 }
 ```
+
