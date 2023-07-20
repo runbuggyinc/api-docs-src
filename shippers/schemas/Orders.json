@@ -6,7 +6,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "description": "### [Create Orders](/docs/shipping-api/b3A6NDE4MzU1MTY-create-an-order) to transfer vehicles.",
+    "description": "### [Create Orders](/docs/shipping/6fcc8c040ec03-create-an-order) to transfer vehicles.",
     "version": "1.0",
     "title": "Orders",
     "termsOfService": "https://runbuggy.com/terms/",
@@ -147,7 +147,7 @@
             }
           },
           "202": {
-            "description": "The request is being processed. See [Handling 202's](/docs/shipping-api/ZG9jOjQxODQyNzEw-202-status-code)."
+            "description": "The request is being processed. See [Handling 202's](/docs/shipping/ea2a0d46dfc8d-handling-202-s)."
           },
           "400": {
             "description": "Bad Request"
@@ -1178,7 +1178,7 @@
             }
           },
           "202": {
-            "description": "The request is being processed. See [Handling 202's](/docs/shipping-api/ZG9jOjQxODQyNzEw-202-status-code)."
+            "description": "The request is being processed. See [Handling 202's](/docs/shipping/ea2a0d46dfc8d-handling-202-s)."
           },
           "400": {
             "description": "Bad Request"
@@ -3081,7 +3081,7 @@
       "required": [
         "vin"
       ],
-      "description": "When creating an order, there are 2 options for providing the Vehicle information. [See here](/docs/shipping-api/ZG9jOjQxODQyNzE1-vehicle-requirements)"
+      "description": "When creating an order, there are 2 options for providing the Vehicle information. [See here](/docs/shipping/ace1edcc412ad-vehicle-request-requirements)"
     },
     "VehicleMeasurements": {
       "type": "object",
@@ -3585,7 +3585,7 @@
       "type": "apiKey",
       "in": "header",
       "name": "Authorization",
-      "description": "See the [Authentication Guide](/docs/shipping-api/ZG9jOjExMDcyMQ-authentication)."
+      "description": "See the [Authentication Guide](/docs/shipping/b6b6c2d4906e9-authentication)."
     }
   }
 }

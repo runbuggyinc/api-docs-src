@@ -1,5 +1,5 @@
 # Runbuggy API Documentation
-Shippers API documentation is published to https://runbuggy.docs.stoplight.io/
+Shippers API documentation is published to https://docs.runbuggy.com/
 
 ### What we use
 * Swagger 2 is used for the API Reference.
