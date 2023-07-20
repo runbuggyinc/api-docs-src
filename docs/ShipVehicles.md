@@ -1,10 +1,10 @@
-[Create an Order](/docs/shipping-api/b3A6NDE4MzU1MTY-create-an-order) to transfer vehicles.
+[Create an Order](/docs/shipping/6fcc8c040ec03-create-an-order) to transfer vehicles.
 
 
-Each vehicle transferred is represented as a [Vehicle Transfer Order](/docs/shipping-api/b3A6NDE4MzU1Mjk-find-vehicle-transfer-orders-expanded).
+Each vehicle transferred is represented as a [Vehicle Transfer Order](/docs/shipping/4b048b7c00878-find-vehicle-transfer-orders-expanded).
 
 ![Diagram](https://api-documentation-assets.s3-us-west-2.amazonaws.com/Shipper+API_+Basic+Process.png)
 
 ---
 
-[Get a Price Quote](/docs/shipping-api/b3A6NDE4MzU1MzQ-quote-an-order) before creating the Order.
+[Get a Price Quote](/docs/shipping/d782f6127386d-quote-an-order) before creating the Order.

@@ -1,9 +1,9 @@
 # Share Order Status with 3rd parties
 
 The flow consists of 4 main steps:
-## 1) [Authenticate](https://runbuggy.stoplight.io/docs/shipping-api/b3A6NDE4MzU1MTM-retrieve-token)
+## 1) [Authenticate](/docs/shipping/3b139797a0321-retrieve-token)
 
-## 2) [Create an Order](https://runbuggy.stoplight.io/docs/shipping-api/b3A6NDE4MzU1MTY-create-an-order)
+## 2) [Create an Order](/docs/shipping/6fcc8c040ec03-create-an-order)
 
 ## 3) Receive JWT token
 This token is used to share Status with Buyer / Seller
