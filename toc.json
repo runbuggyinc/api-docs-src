@@ -7,11 +7,6 @@
     },
     {
       "type": "item",
-      "title": "Authentication API",
-      "uri": "/shippers/schemas/Auth.json"
-    },
-    {
-      "type": "item",
       "title": "Companies",
       "uri": "/shippers/schemas/Companies.json"
     },
