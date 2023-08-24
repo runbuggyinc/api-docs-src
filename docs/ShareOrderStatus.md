@@ -1,7 +1,7 @@
-# Share Order Status with 3rd parties
+# Embedding iFrame Order Status
 
 The flow consists of 4 main steps:
-## 1) [Authenticate](/docs/shipping/3b139797a0321-retrieve-token)
+## 1) Authenticate
 
 ## 2) [Create an Order](/docs/shipping/6fcc8c040ec03-create-an-order)
 
