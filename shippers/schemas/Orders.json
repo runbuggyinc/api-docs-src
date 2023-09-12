@@ -2011,7 +2011,7 @@
         },
         "options": {
           "type": "array",
-          "description": "Fare options. We currently support \"enclosed\"",
+          "description": "Fare options. We currently support \"Enclosed\" (case sensitive)",
           "items": {
             "type": "string"
           }
