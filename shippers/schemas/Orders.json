@@ -587,7 +587,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/VehicleTransferOrder"
+                "$ref": "#/definitions/PageVehicleTransferOrderExpanded"
               }
             }
           },
@@ -692,6 +692,14 @@
             "description": "id",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           }
         ],
         "responses": {
@@ -3185,12 +3193,14 @@
             "AVAILABLE",
             "CLAIMED",
             "UNCLAIMED",
+            "APPROVED",
             "ASSIGNED",
             "REJECTED",
             "ACCEPTED",
             "DRIVER_ARRIVED",
             "PICKED_UP",
             "SIGNATURE_ON_PICKUP",
+            "PROVIDED_ETA_DROPPOFF",
             "UNLOADED",
             "DELIVERED",
             "CANCELED",
