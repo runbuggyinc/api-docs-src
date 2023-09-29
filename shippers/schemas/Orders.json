@@ -475,7 +475,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/OrderRequest"
+              "$ref": "#/definitions/OrderFull"
             }
           },
           "401": {
